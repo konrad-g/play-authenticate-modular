@@ -1,0 +1,8 @@
+playauthenticate.login.email.placeholder=お使いの電子メールアドレス
+playauthenticate.login.password.placeholder=パスワードを入力
+playauthenticate.login.password.repeat=再度パスワードを入力
+playauthenticate.login.title=ログイン
+playauthenticate.login.password.placeholder=パスワード
+playauthenticate.login.now=ログイン完了
+playauthenticate.login.forgot.password=パスワードをお忘れですか？
+playauthenticate.login.oauth=または以下のプロバイダーからログイン：

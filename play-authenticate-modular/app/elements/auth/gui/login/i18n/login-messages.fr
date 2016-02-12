@@ -1,0 +1,8 @@
+playauthenticate.login.email.placeholder=Votre adresse email
+playauthenticate.login.password.placeholder=Choisir un mot de passe
+playauthenticate.login.password.repeat=Réitérer votre mot de passe
+playauthenticate.login.title=Login
+playauthenticate.login.password.placeholder=Mot de passe
+playauthenticate.login.now=Se connecter maintenant
+playauthenticate.login.forgot.password=Mot de passe oublié?
+playauthenticate.login.oauth=ou connectez-vous avec un de ces fournisseurs:

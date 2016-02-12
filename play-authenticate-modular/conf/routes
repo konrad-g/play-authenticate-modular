@@ -1,0 +1,47 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.ApplicationController.index
+GET     /restricted                 controllers.ApplicationController.restricted
+GET     /assets/javascript/routes.js    controllers.ApplicationController.jsRoutes
+
+GET     /profile                    controllers.ApplicationController.profile
+
+GET     /login                      controllers.ApplicationController.login
+POST    /login                      controllers.ApplicationController.doLogin
+
+GET     /logout                     com.feth.play.module.pa.controllers.AuthenticateDI.logout
+GET     /authenticate/:provider     com.feth.play.module.pa.controllers.AuthenticateDI.authenticate(provider: String)
+
+GET     /signup                     controllers.ApplicationController.signup
+POST    /signup                     controllers.ApplicationController.doSignup
+
+GET     /accounts/unverified        controllers.SignupController.unverified
+GET     /authenticate/:provider/denied     controllers.SignupController.oAuthDenied(provider: String)
+
+GET     /accounts/verify/:token     controllers.SignupController.verify(token: String)
+GET     /accounts/exists            controllers.SignupController.exists
+
+GET     /accounts/password/reset/:token     controllers.SignupController.resetPassword(token: String)
+POST    /accounts/password/reset            controllers.SignupController.doResetPassword
+
+GET    /accounts/password/change    controllers.AccountController.changePassword
+POST   /accounts/password/change    controllers.AccountController.doChangePassword
+
+GET     /accounts/verify            controllers.AccountController.verifyEmail
+
+GET     /accounts/add               controllers.AccountController.link
+
+GET     /accounts/link              controllers.AccountController.askLink
+POST    /accounts/link              controllers.AccountController.doLink
+
+GET     /accounts/merge             controllers.AccountController.askMerge
+POST    /accounts/merge             controllers.AccountController.doMerge
+
+GET     /login/password/forgot     controllers.SignupController.forgotPassword(email: String ?= "")
+POST    /login/password/forgot     controllers.SignupController.doForgotPassword
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

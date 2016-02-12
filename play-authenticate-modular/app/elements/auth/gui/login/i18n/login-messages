@@ -1,0 +1,9 @@
+playauthenticate.login.email.placeholder=Your e-mail address
+playauthenticate.login.password.placeholder=Choose a password
+playauthenticate.login.password.repeat=Repeat chosen password
+playauthenticate.login.title=Login
+playauthenticate.login.password.placeholder=Password
+playauthenticate.login.now=Login now
+playauthenticate.login.forgot.password=Forgot your password?
+playauthenticate.login.oauth=or log in using one of the following providers:
+playauthenticate.login.basic=or try HTTP basic auth (as example/secret)

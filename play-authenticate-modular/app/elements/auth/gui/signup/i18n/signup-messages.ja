@@ -1,0 +1,7 @@
+playauthenticate.signup.title=サインアップ
+playauthenticate.signup.name=お名前
+playauthenticate.signup.now=今すぐサインアップ
+playauthenticate.signup.oauth=または以下のプロバイダーからサインアップ：
+
+playauthenticate.user.exists.title=重複したユーザー
+playauthenticate.user.exists.message=このユーザーはすでに存在します。

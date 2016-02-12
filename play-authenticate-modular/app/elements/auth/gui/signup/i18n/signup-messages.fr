@@ -1,0 +1,7 @@
+playauthenticate.signup.title=Enregistrement
+playauthenticate.signup.name=Votre nom
+playauthenticate.signup.now=S'enregistrer maintenant
+playauthenticate.signup.oauth=ou enregistrez-vous avec un de ces fournisseurs:
+
+playauthenticate.user.exists.title=L'utilisateur existe déjà
+playauthenticate.user.exists.message=Cet utilisateur existe déjà.

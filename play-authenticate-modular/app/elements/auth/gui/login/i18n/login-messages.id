@@ -1,0 +1,9 @@
+playauthenticate.login.email.placeholder=Alamat email kamu
+playauthenticate.login.password.placeholder=Pilih password
+playauthenticate.login.password.repeat=Ulangi password
+playauthenticate.login.title=Masuk
+playauthenticate.login.password.placeholder=Password
+playauthenticate.login.now=Masuk sekarang
+playauthenticate.login.forgot.password=Lupa password kamu?
+playauthenticate.login.oauth=atau masuk menggunakan salah satu dari provider berikut:
+playauthenticate.login.basic=atau coba autentikasi HTTP dasar (sebagai contoh / rahasia)

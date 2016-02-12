@@ -1,0 +1,7 @@
+playauthenticate.signup.title=Signup
+playauthenticate.signup.name=Your name
+playauthenticate.signup.now=Sign up now
+playauthenticate.signup.oauth=or sign up using one of the following providers:
+
+playauthenticate.user.exists.title=User exists
+playauthenticate.user.exists.message=This user already exists.

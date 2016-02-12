@@ -1,0 +1,7 @@
+playauthenticate.signup.title=Daftar
+playauthenticate.signup.name=Nama kamu
+playauthenticate.signup.now=Daftar sekarang
+playauthenticate.signup.oauth=atau daftar menggunakan salah satu dari provider berikut:
+
+playauthenticate.user.exists.title=Pengguna sudah ada
+playauthenticate.user.exists.message=Pengguna ini sudah ada sebelumnya.
