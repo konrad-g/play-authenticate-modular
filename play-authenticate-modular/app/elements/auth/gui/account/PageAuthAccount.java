@@ -69,7 +69,7 @@ public class PageAuthAccount {
                 // E-Mail has been validated already
                 this.session.flash(ApplicationController.FLASH_MESSAGE_KEY,
                         Messages.get("playauthenticate.verify_email.error.already_validated"));
-            } else if (user.get().email != null && !user.email.trim().isEmpty()) {
+            } else if (user.get().email != null && !user.get().email.trim().isEmpty()) {
                 this.session.flash(ApplicationController.FLASH_MESSAGE_KEY, Messages.get(
                         "playauthenticate.verify_email.message.instructions_sent",
                         user.get().email));
@@ -89,22 +89,33 @@ public class PageAuthAccount {
     public Result renderAskLink() {
         com.feth.play.module.pa.controllers.AuthenticateDI.noCache(this.session.response());
         final AuthUser u = PlayAuthenticate.getLinkUser(this.session.session());
+
         if (u == null) {
             // account to link could not be found, silently redirect to login
             return this.onRenderListener.redirectToMain();
         }
-        return ok(ViewAskLink.render(ACCEPT_FORM, u));
+
+        String title = Messages.get("playauthenticate.link.account.title");
+        String description = Messages.get("playauthenticate.link.account.description");
+        String keywords = Messages.get("playauthenticate.link.account.keywords");
+
+        Content content = ViewAskLink.render(getAcceptForm(), u);
+
+        boolean disableIndexing = true;
+        ContentInner contentInner = new ContentInner(title, description, keywords, content);
+        return Results.ok(this.onRenderListener.onRender(contentInner, disableIndexing));
     }
 
     public Result doLink() {
-        com.feth.play.module.pa.controllers.AuthenticateDI.noCache(response());
-        final AuthUser u = PlayAuthenticate.getLinkUser(session());
+        com.feth.play.module.pa.controllers.AuthenticateDI.noCache(this.session.response());
+        final AuthUser u = PlayAuthenticate.getLinkUser(this.session.session());
+
         if (u == null) {
             // account to link could not be found, silently redirect to login
             return this.onRenderListener.redirectToMain();
         }
 
-        final Form<ModelAuth.Accept> filledForm = ACCEPT_FORM.bindFromRequest();
+        final Form<ModelAuth.Accept> filledForm = getAcceptForm().bindFromRequest();
         if (filledForm.hasErrors()) {
             // User did not select whether to link or not link
             return badRequest(ViewAskLink.render(filledForm, u));
@@ -112,7 +123,7 @@ public class PageAuthAccount {
             // User made a choice :)
             final boolean link = filledForm.get().accept;
             if (link) {
-                flash(ApplicationController.FLASH_MESSAGE_KEY,
+                this.session.flash(ApplicationController.FLASH_MESSAGE_KEY,
                         Messages.get("playauthenticate.accounts.link.success"));
             }
             return PlayAuthenticate.link(ctx(), link);
@@ -120,12 +131,12 @@ public class PageAuthAccount {
     }
 
     public Result renderAskMerge() {
-        com.feth.play.module.pa.controllers.AuthenticateDI.noCache(response());
+        com.feth.play.module.pa.controllers.AuthenticateDI.noCache(this.session.response());
         // this is the currently logged in user
-        final AuthUser aUser = PlayAuthenticate.getUser(session());
+        final AuthUser aUser = PlayAuthenticate.getUser(this.session.session());
 
         // this is the user that was selected for a login
-        final AuthUser bUser = PlayAuthenticate.getMergeUser(session());
+        final AuthUser bUser = PlayAuthenticate.getMergeUser(this.session.session());
         if (bUser == null) {
             // user to merge with could not be found, silently redirect to login
             return this.onRenderListener.redirectToMain();
@@ -137,18 +148,18 @@ public class PageAuthAccount {
     }
 
     public Result doMerge() {
-        com.feth.play.module.pa.controllers.AuthenticateDI.noCache(response());
+        com.feth.play.module.pa.controllers.AuthenticateDI.noCache(this.session.response());
         // this is the currently logged in user
-        final AuthUser aUser = PlayAuthenticate.getUser(session());
+        final AuthUser aUser = PlayAuthenticate.getUser(this.session.session());
 
         // this is the user that was selected for a login
-        final AuthUser bUser = PlayAuthenticate.getMergeUser(session());
+        final AuthUser bUser = PlayAuthenticate.getMergeUser(this.session.session());
         if (bUser == null) {
             // user to merge with could not be found, silently redirect to login
             return this.onRenderListener.redirectToMain();
         }
 
-        final Form<ModelAuth.Accept> filledForm = ACCEPT_FORM.bindFromRequest();
+        final Form<ModelAuth.Accept> filledForm = getAcceptForm().bindFromRequest();
         if (filledForm.hasErrors()) {
             // User did not select whether to merge or not merge
             return badRequest(ViewAskMerge.render(filledForm, aUser, bUser));
@@ -156,7 +167,7 @@ public class PageAuthAccount {
             // User made a choice :)
             final boolean merge = filledForm.get().accept;
             if (merge) {
-                flash(ApplicationController.FLASH_MESSAGE_KEY,
+                this.session.flash(ApplicationController.FLASH_MESSAGE_KEY,
                         Messages.get("playauthenticate.accounts.merge.success"));
             }
             return PlayAuthenticate.merge(ctx(), merge);
