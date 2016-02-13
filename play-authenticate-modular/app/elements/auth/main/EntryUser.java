@@ -136,7 +136,7 @@ public class EntryUser extends Model implements Subject {
 	public static EntryUser create(final AuthUser authUser) {
 		final EntryUser user = new EntryUser();
 		user.roles = Collections.singletonList(EntrySecurityRole
-				.findByRoleName(ApplicationController.USER_ROLE));
+				.findByRoleName(Auth.USER_ROLE));
 		// user.permissions = new ArrayList<UserPermission>();
 		// user.permissions.add(UserPermission.findByValue("printers.edit"));
 		user.active = true;

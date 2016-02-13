@@ -7,6 +7,7 @@
 
 @import be.objectify.deadbolt.java.views.html._
 @import elements.auth.main.EntryUser
+@import elements.auth.main.Auth
 @import be.objectify.deadbolt.core.utils.TemplateUtils._
 
 <!DOCTYPE html>
@@ -75,18 +76,18 @@
 
 
         <div class="container">
-            @if(flash.contains(ApplicationController.FLASH_ERROR_KEY)) {
+            @if(flash.contains(Auth.FLASH_ERROR_KEY)) {
                 <div class="alert alert-danger" role="alert">
                     <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">
                         Close</span></button>
-                    @flash().get(ApplicationController.FLASH_ERROR_KEY)
+                    @flash().get(Auth.FLASH_ERROR_KEY)
                 </div>
             }
-            @if(flash.contains(ApplicationController.FLASH_MESSAGE_KEY)) {
+            @if(flash.contains(Auth.FLASH_MESSAGE_KEY)) {
                 <div class="alert alert-success" role="alert">
                     <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">
                         Close</span></button>
-                    @flash().get(ApplicationController.FLASH_MESSAGE_KEY)
+                    @flash().get(Auth.FLASH_MESSAGE_KEY)
                 </div>
             }
             @content

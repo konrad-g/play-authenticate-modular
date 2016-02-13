@@ -2,6 +2,7 @@ package elements.auth.gui.password_change;
 
 import controllers.ApplicationController;
 import controllers.routes;
+import elements.auth.main.Auth;
 import elements.auth.main.EntryUser;
 import elements.auth.main.ModelAuth;
 import elements.auth.main.ProviderUsernamePasswordAuthUser;
@@ -70,7 +71,7 @@ public class PageAuthChangePassword {
             final String newPassword = filledForm.get().password;
             user.changePassword(new ProviderUsernamePasswordAuthUser(newPassword),
                     true);
-            this.session.flash(ApplicationController.FLASH_MESSAGE_KEY,
+            this.session.flash(Auth.FLASH_MESSAGE_KEY,
                     Messages.get("playauthenticate.change_password.success"));
             return Results.redirect(routes.ApplicationController.profile());
         }

@@ -5,6 +5,7 @@ import java.util.Date;
 
 import elements.auth.gui.login.PageAuthLogin;
 import elements.auth.gui.signup.PageAuthSignup;
+import elements.auth.main.Auth;
 import elements.auth.main.EntryUser;
 import elements.gui.error.PageError;
 import elements.gui.index.PageIndex;
@@ -26,23 +27,19 @@ import elements.auth.gui.signup.html.*;
 import elements.auth.gui.login.html.*;
 
 public class ApplicationController extends BaseController {
-
-	public static final String FLASH_MESSAGE_KEY = "message";
-	public static final String FLASH_ERROR_KEY = "error";
-	public static final String USER_ROLE = "user";
 	
 	public Result index() {
 		PageIndex page = new PageIndex(getSession(), this.onRenderListener);
 		return page.render();
 	}
 
-	@Restrict(@Group(ApplicationController.USER_ROLE))
+	@Restrict(@Group(Auth.USER_ROLE))
 	public Result restricted() {
 		PageError page = new PageError(getSession(), this.onRenderListener);
 		return page.renderRestricted();
 	}
 
-	@Restrict(@Group(ApplicationController.USER_ROLE))
+	@Restrict(@Group(Auth.USER_ROLE))
 	public Result profile() {
 		PageProfile pageProfile = new PageProfile(getSession(), this.onRenderListener);
 		return pageProfile.render();
@@ -78,9 +75,4 @@ public class ApplicationController extends BaseController {
 						routes.javascript.SignupController.forgotPassword()))
 				.as("text/javascript");
 	}
-
-	public static String formatTimestamp(final long t) {
-		return new SimpleDateFormat("yyyy-dd-MM HH:mm:ss").format(new Date(t));
-	}
-
 }

@@ -1,6 +1,7 @@
 import java.util.Arrays;
 
 import controllers.ApplicationController;
+import elements.auth.main.Auth;
 import elements.auth.main.EntrySecurityRole;
 
 import com.feth.play.module.pa.PlayAuthenticate;
@@ -75,7 +76,7 @@ public class Global extends GlobalSettings {
 	private void initialData() {
 		if (EntrySecurityRole.find.findRowCount() == 0) {
 			for (final String roleName : Arrays
-					.asList(ApplicationController.USER_ROLE)) {
+					.asList(Auth.USER_ROLE)) {
 				final EntrySecurityRole role = new EntrySecurityRole();
 				role.roleName = roleName;
 				role.save();

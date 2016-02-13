@@ -1,6 +1,7 @@
 @import elements.auth.main.EntryUser
 @(localUser: EntryUser = null)
 
+@import elements.common.HelperDate
 @import com.feth.play.module.pa.views.html._
 @import elements.auth.gui.common.html._
 
@@ -38,7 +39,7 @@ Your name is @localUser.name and your email address is @if(!localUser.email) {<e
 @currentAuth() { auth =>
     @Messages("playauthenticate.profile.logged") @_ViewProviderIcon(auth.getProvider())<br/>
     @if(auth.expires() != -1){
-        @Messages("playauthenticate.profile.session", auth.getId(), ApplicationController.formatTimestamp(auth.expires()))
+        @Messages("playauthenticate.profile.session", auth.getId(), HelperDate.formatTimestamp(auth.expires()))
     } else {
         @Messages("playauthenticate.profile.session_endless", auth.getId())
     }

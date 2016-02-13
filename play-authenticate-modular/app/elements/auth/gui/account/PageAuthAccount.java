@@ -8,10 +8,7 @@ import com.feth.play.module.pa.user.AuthUser;
 import java.util.Optional;
 import controllers.ApplicationController;
 import controllers.routes;
-import elements.auth.main.EntryUser;
-import elements.auth.main.ModelAuth;
-import elements.auth.main.ProviderUsernamePasswordAuth;
-import elements.auth.main.ProviderUsernamePasswordAuthUser;
+import elements.auth.main.*;
 import elements.common.OnRenderListener;
 import elements.gui.base.ContentInner;
 import elements.session.Session;
@@ -67,16 +64,16 @@ public class PageAuthAccount {
         } else {
             if (user.get().emailValidated) {
                 // E-Mail has been validated already
-                this.session.flash(ApplicationController.FLASH_MESSAGE_KEY,
+                this.session.flash(Auth.FLASH_MESSAGE_KEY,
                         Messages.get("playauthenticate.verify_email.error.already_validated"));
             } else if (user.get().email != null && !user.get().email.trim().isEmpty()) {
-                this.session.flash(ApplicationController.FLASH_MESSAGE_KEY, Messages.get(
+                this.session.flash(Auth.FLASH_MESSAGE_KEY, Messages.get(
                         "playauthenticate.verify_email.message.instructions_sent",
                         user.get().email));
                 ProviderUsernamePasswordAuth.getProvider()
                         .sendVerifyEmailMailingAfterSignup(user.get(), this.session.ctx());
             } else {
-                this.session.flash(ApplicationController.FLASH_MESSAGE_KEY, Messages.get(
+                this.session.flash(Auth.FLASH_MESSAGE_KEY, Messages.get(
                         "playauthenticate.verify_email.error.set_email_first",
                         user.get().email));
             }
@@ -94,14 +91,9 @@ public class PageAuthAccount {
             return this.onRenderListener.redirectToMain();
         }
 
-        String title = Messages.get("playauthenticate.link.account.title");
-        String description = Messages.get("playauthenticate.link.account.description");
-        String keywords = Messages.get("playauthenticate.link.account.keywords");
-
-        Content content = ViewAskLink.render(getAcceptForm(), u);
+        ContentInner contentInner = renderAskLinkView(getAcceptForm(), u);
 
         boolean disableIndexing = true;
-        ContentInner contentInner = new ContentInner(title, description, keywords, content);
         return Results.ok(this.onRenderListener.onRender(contentInner, disableIndexing));
     }
 
@@ -120,13 +112,8 @@ public class PageAuthAccount {
         if (filledForm.hasErrors()) {
             // User did not select whether to link or not link
 
-            String title = Messages.get("playauthenticate.link.account.title");
-            String description = Messages.get("playauthenticate.link.account.description");
-            String keywords = Messages.get("playauthenticate.link.account.keywords");
-
-            Content content = ViewAskLink.render(filledForm, u);
+            ContentInner contentInner = renderAskLinkView(filledForm, u);
             boolean disableIndexing = true;
-            ContentInner contentInner = new ContentInner(title, description, keywords, content);
 
             return Results.badRequest(this.onRenderListener.onRender(contentInner, disableIndexing));
 
@@ -135,7 +122,7 @@ public class PageAuthAccount {
             // User made a choice :)
             final boolean link = filledForm.get().accept;
             if (link) {
-                this.session.flash(ApplicationController.FLASH_MESSAGE_KEY,
+                this.session.flash(Auth.FLASH_MESSAGE_KEY,
                         Messages.get("playauthenticate.accounts.link.success"));
             }
             return PlayAuthenticate.link(this.session.ctx(), link);
@@ -155,15 +142,11 @@ public class PageAuthAccount {
             return this.onRenderListener.redirectToMain();
         }
 
-        boolean disableIndexing = true;
-        String title = Messages.get("playauthenticate.merge.accounts.title");
-        String description = Messages.get("playauthenticate.merge.accounts.description");
-        String keywords = Messages.get("playauthenticate.merge.accounts.keywords");
-
         // You could also get the local user object here via
         // User.findByAuthUserIdentity(newUser)
-        Content content = ViewAskMerge.render(getAcceptForm(), aUser, bUser);
-        ContentInner contentInner = new ContentInner(title, description, keywords, content);
+
+        ContentInner contentInner = renderMergeAccountsView(getAcceptForm(), aUser, bUser);
+        boolean disableIndexing = true;
 
         return Results.ok(this.onRenderListener.onRender(contentInner, disableIndexing));
     }
@@ -185,23 +168,44 @@ public class PageAuthAccount {
         if (filledForm.hasErrors()) {
             // User did not select whether to merge or not merge
 
+            ContentInner contentInner = renderMergeAccountsView(filledForm, aUser, bUser);
             boolean disableIndexing = true;
-            String title = Messages.get("playauthenticate.merge.accounts.title");
-            String description = Messages.get("playauthenticate.merge.accounts.description");
-            String keywords = Messages.get("playauthenticate.merge.accounts.keywords");
-
-            Content content = ViewAskMerge.render(filledForm, aUser, bUser);
-            ContentInner contentInner = new ContentInner(title, description, keywords, content);
 
             return Results.badRequest(this.onRenderListener.onRender(contentInner, disableIndexing));
         } else {
             // User made a choice :)
             final boolean merge = filledForm.get().accept;
             if (merge) {
-                this.session.flash(ApplicationController.FLASH_MESSAGE_KEY,
+                this.session.flash(Auth.FLASH_MESSAGE_KEY,
                         Messages.get("playauthenticate.accounts.merge.success"));
             }
             return PlayAuthenticate.merge(this.session.ctx(), merge);
         }
+    }
+
+    private ContentInner renderAskLinkView(Form<ModelAuth.Accept> form, AuthUser user) {
+
+        String title = Messages.get("playauthenticate.link.account.title");
+        String description = Messages.get("playauthenticate.link.account.description");
+        String keywords = Messages.get("playauthenticate.link.account.keywords");
+
+        Content content = ViewAskLink.render(form, user);
+        ContentInner contentInner = new ContentInner(title, description, keywords, content);
+
+        return contentInner;
+    }
+
+    private ContentInner renderMergeAccountsView(Form<ModelAuth.Accept> form, AuthUser aUser, AuthUser bUser) {
+
+        String title = Messages.get("playauthenticate.merge.accounts.title");
+        String description = Messages.get("playauthenticate.merge.accounts.description");
+        String keywords = Messages.get("playauthenticate.merge.accounts.keywords");
+
+        // You could also get the local user object here via
+        // User.findByAuthUserIdentity(newUser)
+        Content content = ViewAskMerge.render(form, aUser, bUser);
+        ContentInner contentInner = new ContentInner(title, description, keywords, content);
+
+        return contentInner;
     }
 }

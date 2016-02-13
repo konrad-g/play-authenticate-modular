@@ -1,16 +1,11 @@
 package controllers;
 
 import elements.auth.gui.signup.PageAuthSignup;
-import elements.auth.main.ModelAuth;
-import elements.auth.main.EntryTokenAction;
+import elements.auth.main.*;
 import elements.auth.main.EntryTokenAction.Type;
-import elements.auth.main.EntryUser;
 import play.data.Form;
 import play.i18n.Messages;
 import play.mvc.Result;
-import elements.auth.main.ProviderLoginUsernamePasswordAuthUser;
-import elements.auth.main.ProviderUsernamePasswordAuth;
-import elements.auth.main.ProviderUsernamePasswordAuthUser;
 
 import com.feth.play.module.pa.PlayAuthenticate;
 import elements.auth.gui.account.html.*;
@@ -56,7 +51,7 @@ public class SignupController extends BaseController {
 			// We don't want to expose whether a given email address is signed
 			// up, so just say an email has been sent, even though it might not
 			// be true - that's protecting our user privacy.
-			flash(ApplicationController.FLASH_MESSAGE_KEY,
+			flash(Auth.FLASH_MESSAGE_KEY,
 					Messages.get(
 							"playauthenticate.reset_password.message.instructions_sent",
 							email));
@@ -80,7 +75,7 @@ public class SignupController extends BaseController {
 					// with the password reset, as a "bad" user could then sign
 					// up with a fake email via OAuth and get it verified by an
 					// a unsuspecting user that clicks the link.
-					flash(ApplicationController.FLASH_MESSAGE_KEY,
+					flash(Auth.FLASH_MESSAGE_KEY,
 							Messages.get("playauthenticate.reset_password.message.email_not_verified"));
 
 					// You might want to re-send the verification email here...
@@ -144,21 +139,21 @@ public class SignupController extends BaseController {
 				u.resetPassword(new ProviderUsernamePasswordAuthUser(newPassword),
 						false);
 			} catch (final RuntimeException re) {
-				flash(ApplicationController.FLASH_MESSAGE_KEY,
+				flash(Auth.FLASH_MESSAGE_KEY,
 						Messages.get("playauthenticate.reset_password.message.no_password_account"));
 			}
 			final boolean login = ProviderUsernamePasswordAuth.getProvider()
 					.isLoginAfterPasswordReset();
 			if (login) {
 				// automatically log in
-				flash(ApplicationController.FLASH_MESSAGE_KEY,
+				flash(Auth.FLASH_MESSAGE_KEY,
 						Messages.get("playauthenticate.reset_password.message.success.auto_login"));
 
 				return PlayAuthenticate.loginAndRedirect(ctx(),
 						new ProviderLoginUsernamePasswordAuthUser(u.email));
 			} else {
 				// send the user to the login page
-				flash(ApplicationController.FLASH_MESSAGE_KEY,
+				flash(Auth.FLASH_MESSAGE_KEY,
 						Messages.get("playauthenticate.reset_password.message.success.manual_login"));
 			}
 			return redirect(routes.ApplicationController.login());
@@ -186,7 +181,7 @@ public class SignupController extends BaseController {
 		}
 		final String email = ta.targetUser.email;
 		EntryUser.verify(ta.targetUser);
-		flash(ApplicationController.FLASH_MESSAGE_KEY,
+		flash(Auth.FLASH_MESSAGE_KEY,
 				Messages.get("playauthenticate.verify_email.success", email));
 		if (getSession().getCurrentUser().isPresent()) {
 			return redirect(routes.ApplicationController.index());
