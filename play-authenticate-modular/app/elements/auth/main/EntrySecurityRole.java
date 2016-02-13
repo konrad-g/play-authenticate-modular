@@ -28,9 +28,7 @@ import be.objectify.deadbolt.core.models.Role;
 @Entity
 @Table(name = "security_roles")
 public class EntrySecurityRole extends Model implements Role {
-	/**
-	 *
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	@Id

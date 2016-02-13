@@ -12,9 +12,6 @@ import com.feth.play.module.pa.user.AuthUser;
 @Table(name = "linked_accounts")
 public class EntryLinkedAccount extends Model {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id

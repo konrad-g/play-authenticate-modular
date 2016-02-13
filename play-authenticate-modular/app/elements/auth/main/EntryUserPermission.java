@@ -14,9 +14,7 @@ import com.avaje.ebean.Model;
 @Entity
 @Table(name = "user_permissions")
 public class EntryUserPermission extends Model implements Permission {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	@Id

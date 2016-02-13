@@ -27,9 +27,7 @@ import java.util.*;
 @Entity
 @Table(name = "users")
 public class EntryUser extends Model implements Subject {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	@Id

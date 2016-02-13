@@ -23,9 +23,6 @@ public class EntryTokenAction extends Model {
 		PASSWORD_RESET
 	}
 
-	/**
-	 *
-	 */
 	private static final long serialVersionUID = 1L;
 
 	/**
