@@ -1,6 +1,7 @@
 package elements.auth.gui.signup;
 
 import com.feth.play.module.pa.providers.password.UsernamePasswordAuthProvider;
+import elements.auth.gui.account.html.ViewSignupUnverified;
 import elements.auth.main.ModelAuth;
 import elements.common.OnRenderListener;
 import elements.gui.base.ContentInner;
@@ -40,6 +41,20 @@ public class PageAuthSignup {
 
         Content contentFinal = this.onRenderListener.onRender(innerContent, disableIndexing);
         return Results.ok(contentFinal);
+    }
+
+    public Result renderUnverified() {
+        com.feth.play.module.pa.controllers.AuthenticateDI.noCache(this.session.response());
+
+        String title = Messages.get("playauthenticate.verify.email.title");
+        String description = Messages.get("playauthenticate.verify.email.description");
+        String keywords = Messages.get("playauthenticate.verify.email.keywords");
+
+        boolean disableIndexing = true;
+        Content content = ViewSignupUnverified.render();
+        ContentInner innerContent = new ContentInner(title, description, keywords, content);
+
+        return Results.ok(this.onRenderListener.onRender(innerContent, disableIndexing));
     }
 
     public Result renderExists() {

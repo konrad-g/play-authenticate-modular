@@ -31,7 +31,8 @@ public class LayoutBase  {
                     innerContent.title,
                     innerContent.description,
                     innerContent.keywords,
-                    disableIndexing, user,
+                    disableIndexing,
+                    user,
                     innerContent.content
             );
         } else {

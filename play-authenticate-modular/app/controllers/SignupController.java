@@ -17,13 +17,12 @@ import static play.data.Form.form;
 public class SignupController extends BaseController {
 
 	private static final Form<ModelAuth.PasswordReset> PASSWORD_RESET_FORM = form(ModelAuth.PasswordReset.class);
+	private static final Form<ModelAuth.Identity> FORGOT_PASSWORD_FORM = form(ModelAuth.Identity.class);
 
 	public Result unverified() {
-		com.feth.play.module.pa.controllers.AuthenticateDI.noCache(response());
-		return ok(ViewSignupUnverified.render());
+		PageAuthSignup page = new PageAuthSignup(getSession(), this.onRenderListener);
+		return page.renderUnverified();
 	}
-
-	private static final Form<ModelAuth.Identity> FORGOT_PASSWORD_FORM = form(ModelAuth.Identity.class);
 
 	public Result forgotPassword(final String email) {
 		com.feth.play.module.pa.controllers.AuthenticateDI.noCache(response());
@@ -87,28 +86,9 @@ public class SignupController extends BaseController {
 		}
 	}
 
-	/**
-	 * Returns a token object if valid, null if not
-	 * 
-	 * @param token
-	 * @param type
-	 * @return
-	 */
-	private static EntryTokenAction tokenIsValid(final String token, final Type type) {
-		EntryTokenAction ret = null;
-		if (token != null && !token.trim().isEmpty()) {
-			final EntryTokenAction ta = EntryTokenAction.findByToken(token, type);
-			if (ta != null && ta.isValid()) {
-				ret = ta;
-			}
-		}
-
-		return ret;
-	}
-
 	public Result resetPassword(final String token) {
 		com.feth.play.module.pa.controllers.AuthenticateDI.noCache(response());
-		final EntryTokenAction ta = tokenIsValid(token, Type.PASSWORD_RESET);
+		final EntryTokenAction ta = Auth.isTokenValid(token, Type.PASSWORD_RESET);
 		if (ta == null) {
 			return badRequest(ViewNoTokenOrInvalid.render());
 		}
@@ -127,7 +107,7 @@ public class SignupController extends BaseController {
 			final String token = filledForm.get().token;
 			final String newPassword = filledForm.get().password;
 
-			final EntryTokenAction ta = tokenIsValid(token, Type.PASSWORD_RESET);
+			final EntryTokenAction ta = Auth.isTokenValid(token, Type.PASSWORD_RESET);
 			if (ta == null) {
 				return badRequest(ViewNoTokenOrInvalid.render());
 			}
@@ -175,7 +155,7 @@ public class SignupController extends BaseController {
 
 	public Result verify(final String token) {
 		com.feth.play.module.pa.controllers.AuthenticateDI.noCache(response());
-		final EntryTokenAction ta = tokenIsValid(token, Type.EMAIL_VERIFICATION);
+		final EntryTokenAction ta = Auth.isTokenValid(token, Type.EMAIL_VERIFICATION);
 		if (ta == null) {
 			return badRequest(ViewNoTokenOrInvalid.render());
 		}

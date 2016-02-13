@@ -1,6 +1,7 @@
 @import elements.auth.main.EntryUser
 @(title: String,
-        description: String, keywords: String,
+        description: String,
+        keywords: String,
         disableIndexing:Boolean,
         user : java.util.Optional[EntryUser],
         content: Content)
@@ -17,8 +18,13 @@
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Play Authenticate - an authentication module for the Play! Framework 2.0">
-        <meta name="author" content="The Play Authenticate Team">
+        <meta name="keywords" content="@keywords" />
+        <meta name="description" content="@description" />
+        <meta name="author" content="The Play Authenticate Team & Konrad Gadzinowski">
+
+        @if(disableIndexing) {
+            <meta name="robots" content="noindex,nofollow" />
+        }
 
         <script type="text/javascript" src="@routes.Assets.versioned("lib/jquery/jquery.js")"></script>
         <script type="text/javascript" src="@routes.Assets.versioned("lib/bootstrap/js/bootstrap.js")"></script>
