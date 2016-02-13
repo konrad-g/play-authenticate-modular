@@ -3,7 +3,8 @@ package com.play.auth.test;
 import com.digitaljetty.workjetty.controllers.gui.*;
 import com.digitaljetty.workjetty.elements.gui.pages.search.list.jobs.HtmlPaginatorTest;
 import com.digitaljetty.workjetty.elements.gui.pages.search.list.jobs.SearchJobsListTest;
-import com.play.auth.test.elements.SearchTalentsListTest;
+import com.play.auth.test.controllers.AppControllerTest;
+import com.play.auth.test.elements.auth.gui.login.PageAuthLoginTest;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
@@ -14,11 +15,8 @@ import org.junit.runners.Suite;
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-        SearchJobsListTest.class,
-        SearchTalentsListTest.class,
-        MainControllerTest.class,
-        ErrorControllerTest.class,
-        HtmlPaginatorTest.class
+        AppControllerTest.class,
+        PageAuthLoginTest.class
 })
 
 public class AllTestsSuite {
