@@ -184,24 +184,42 @@ public class PageAuthAccount {
     }
 
     public Result renderOAuthDenied(final String getProviderKey) {
-        com.feth.play.module.pa.controllers.AuthenticateDI.noCache(response());
-        return ok(ViewOAuthDenied.render(getProviderKey));
+        com.feth.play.module.pa.controllers.AuthenticateDI.noCache(this.session.response());
+
+        boolean disableIndexing = true;
+        String title = Messages.get("playauthenticate.oauth.access.denied.title");
+        String description = Messages.get("playauthenticate.oauth.access.denied.description");
+        String keywords = Messages.get("playauthenticate.oauth.access.denied.keywords");
+
+        Content content = ViewOAuthDenied.render(getProviderKey);
+        ContentInner contentInner = new ContentInner(title, description, keywords, content);
+
+        return Results.ok(this.onRenderListener.onRender(contentInner, disableIndexing));
     }
 
     public Result renderVerify(final String token) {
-        com.feth.play.module.pa.controllers.AuthenticateDI.noCache(response());
+        com.feth.play.module.pa.controllers.AuthenticateDI.noCache(this.session.response());
         final EntryTokenAction ta = Auth.isTokenValid(token, EntryTokenAction.Type.EMAIL_VERIFICATION);
         if (ta == null) {
-            return badRequest(ViewNoTokenOrInvalid.render());
+
+            boolean disableIndexing = true;
+            String title = Messages.get("playauthenticate.token.error.title");
+            String description = Messages.get("playauthenticate.token.error.description");
+            String keywords = Messages.get("playauthenticate.token.error.keywords");
+
+            Content content = ViewNoTokenOrInvalid.render();
+            ContentInner contentInner = new ContentInner(title, description, keywords, content);
+
+            return Results.badRequest(this.onRenderListener.onRender(contentInner, disableIndexing));
         }
         final String email = ta.targetUser.email;
         EntryUser.verify(ta.targetUser);
-        flash(Auth.FLASH_MESSAGE_KEY,
+        this.session.flash(Auth.FLASH_MESSAGE_KEY,
                 Messages.get("playauthenticate.verify_email.success", email));
-        if (getSession().getCurrentUser().isPresent()) {
-            return redirect(routes.ApplicationController.index());
+        if (this.session.getCurrentUser().isPresent()) {
+            return Results.redirect(routes.ApplicationController.index());
         } else {
-            return redirect(routes.ApplicationController.login());
+            return Results.redirect(routes.ApplicationController.login());
         }
     }
 

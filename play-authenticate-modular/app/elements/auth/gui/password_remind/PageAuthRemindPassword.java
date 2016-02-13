@@ -11,6 +11,8 @@ import elements.session.Session;
 import play.data.Form;
 import play.i18n.Messages;
 import play.mvc.Result;
+import play.mvc.Results;
+import play.twirl.api.Content;
 
 import static play.data.Form.form;
 
@@ -31,21 +33,24 @@ public class PageAuthRemindPassword {
     private static final Form<ModelAuth.Identity> FORGOT_PASSWORD_FORM = form(ModelAuth.Identity.class);
 
     public Result renderRemindPassword(final String email) {
-        com.feth.play.module.pa.controllers.AuthenticateDI.noCache(response());
+        com.feth.play.module.pa.controllers.AuthenticateDI.noCache(this.session.response());
         Form<ModelAuth.Identity> form = FORGOT_PASSWORD_FORM;
         if (email != null && !email.trim().isEmpty()) {
             form = FORGOT_PASSWORD_FORM.fill(new ModelAuth.Identity(email));
         }
-        return ok(ViewPasswordForgot.render(form));
+        ViewPasswordForgot.render(form)
+
+        return ok();
     }
 
     public Result doRemindPassword() {
-        com.feth.play.module.pa.controllers.AuthenticateDI.noCache(response());
+        com.feth.play.module.pa.controllers.AuthenticateDI.noCache(this.session.response());
         final Form<ModelAuth.Identity> filledForm = FORGOT_PASSWORD_FORM
                 .bindFromRequest();
         if (filledForm.hasErrors()) {
             // User did not fill in his/her email
-            return badRequest(ViewPasswordForgot.render(filledForm));
+            Content content = ViewPasswordForgot.render(filledForm);
+            return badRequest();
         } else {
             // The email address given *BY AN UNKNWON PERSON* to the form - we
             // should find out if we actually have a user with this email
@@ -56,7 +61,7 @@ public class PageAuthRemindPassword {
             // We don't want to expose whether a given email address is signed
             // up, so just say an email has been sent, even though it might not
             // be true - that's protecting our user privacy.
-            flash(Auth.FLASH_MESSAGE_KEY,
+            this.session.flash(Auth.FLASH_MESSAGE_KEY,
                     Messages.get(
                             "playauthenticate.reset_password.message.instructions_sent",
                             email));
@@ -70,7 +75,7 @@ public class PageAuthRemindPassword {
                         .getProvider();
                 // User exists
                 if (user.emailValidated) {
-                    provider.sendPasswordResetMailing(user, ctx());
+                    provider.sendPasswordResetMailing(user, this.session.ctx());
                     // In case you actually want to let (the unknown person)
                     // know whether a user was found/an email was sent, use,
                     // change the flash message
@@ -80,11 +85,11 @@ public class PageAuthRemindPassword {
                     // with the password reset, as a "bad" user could then sign
                     // up with a fake email via OAuth and get it verified by an
                     // a unsuspecting user that clicks the link.
-                    flash(Auth.FLASH_MESSAGE_KEY,
+                    this.session.flash(Auth.FLASH_MESSAGE_KEY,
                             Messages.get("playauthenticate.reset_password.message.email_not_verified"));
 
                     // You might want to re-send the verification email here...
-                    provider.sendVerifyEmailMailingAfterSignup(user, ctx());
+                    provider.sendVerifyEmailMailingAfterSignup(user, this.session.ctx());
                 }
             }
 
@@ -96,7 +101,10 @@ public class PageAuthRemindPassword {
         com.feth.play.module.pa.controllers.AuthenticateDI.noCache(response());
         final EntryTokenAction ta = Auth.isTokenValid(token, EntryTokenAction.Type.PASSWORD_RESET);
         if (ta == null) {
-            return badRequest(ViewNoTokenOrInvalid.render());
+
+            ViewNoTokenOrInvalid.render()
+
+            return badRequest();
         }
 
         return ok(ViewPasswordReset.render(PASSWORD_RESET_FORM
@@ -108,14 +116,18 @@ public class PageAuthRemindPassword {
         final Form<ModelAuth.PasswordReset> filledForm = PASSWORD_RESET_FORM
                 .bindFromRequest();
         if (filledForm.hasErrors()) {
-            return badRequest(ViewPasswordReset.render(filledForm));
+            Content content = ViewPasswordReset.render(filledForm);
+            return badRequest();
         } else {
             final String token = filledForm.get().token;
             final String newPassword = filledForm.get().password;
 
             final EntryTokenAction ta = Auth.isTokenValid(token, EntryTokenAction.Type.PASSWORD_RESET);
             if (ta == null) {
-                return badRequest(ViewNoTokenOrInvalid.render());
+
+                Content content = ViewNoTokenOrInvalid.render();
+
+                return badRequest();
             }
             final EntryUser u = ta.targetUser;
             try {
@@ -125,24 +137,24 @@ public class PageAuthRemindPassword {
                 u.resetPassword(new ProviderUsernamePasswordAuthUser(newPassword),
                         false);
             } catch (final RuntimeException re) {
-                flash(Auth.FLASH_MESSAGE_KEY,
+                this.session.flash(Auth.FLASH_MESSAGE_KEY,
                         Messages.get("playauthenticate.reset_password.message.no_password_account"));
             }
             final boolean login = ProviderUsernamePasswordAuth.getProvider()
                     .isLoginAfterPasswordReset();
             if (login) {
                 // automatically log in
-                flash(Auth.FLASH_MESSAGE_KEY,
+                this.session.flash(Auth.FLASH_MESSAGE_KEY,
                         Messages.get("playauthenticate.reset_password.message.success.auto_login"));
 
                 return PlayAuthenticate.loginAndRedirect(ctx(),
                         new ProviderLoginUsernamePasswordAuthUser(u.email));
             } else {
                 // send the user to the login page
-                flash(Auth.FLASH_MESSAGE_KEY,
+                this.session.flash(Auth.FLASH_MESSAGE_KEY,
                         Messages.get("playauthenticate.reset_password.message.success.manual_login"));
             }
-            return redirect(routes.ApplicationController.login());
+            return Results.redirect(routes.ApplicationController.login());
         }
     }
 }
