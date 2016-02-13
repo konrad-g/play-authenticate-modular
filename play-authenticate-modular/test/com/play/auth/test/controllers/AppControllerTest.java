@@ -56,6 +56,7 @@ public class AppControllerTest extends BaseTest {
 
             }
         });
+    }
 
     /**
      * Given I'm logged int

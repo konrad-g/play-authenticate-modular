@@ -54,7 +54,7 @@ public class BaseTest {
 
         GuiceApplicationBuilder builder = new GuiceApplicationBuilder()
                 .in(Mode.TEST);
-        builder = I18NModule.setupI18N(builder, loader.getI18nFiles());
+        builder = I18NModule.setupI18N(builder, loader.getDefaultLang(), loader.getI18nFiles());
 
         Application application = builder.build();
 

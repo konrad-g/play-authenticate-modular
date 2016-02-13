@@ -1,16 +1,5 @@
 package com.play.auth.test.elements.auth.gui.login;
 
-import com.digitaljetty.workjetty.BaseTest;
-import com.digitaljetty.workjetty.controllers.gui.BaseController;
-import com.digitaljetty.workjetty.elements.auth.main.EntryUser;
-import com.digitaljetty.workjetty.elements.gui.pages.search.list.talents.PageTalentsList;
-import com.digitaljetty.workjetty.elements.gui.pages.search.list.talents.models.ModelTalentsResult;
-import com.digitaljetty.workjetty.elements.location.EntryLocation;
-import com.digitaljetty.workjetty.elements.location.Location;
-import com.digitaljetty.workjetty.elements.session.Session;
-import com.digitaljetty.workjetty.elements.storage.Entry;
-import com.digitaljetty.workjetty.elements.talent.EntryTalent;
-import com.digitaljetty.workjetty.elements.talent.Talent;
 import com.play.auth.test.BaseTest;
 import org.junit.Assert;
 import org.junit.Test;

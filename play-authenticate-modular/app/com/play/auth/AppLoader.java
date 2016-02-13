@@ -12,7 +12,7 @@ import java.util.Set;
 
 public class AppLoader extends GuiceApplicationLoader {
 
-    static final String DEFAULT_LANG = "en";
+    private final String DEFAULT_LANG = "en";
 
     @Override
     public GuiceApplicationBuilder builder(ApplicationLoader.Context context) {
@@ -20,10 +20,14 @@ public class AppLoader extends GuiceApplicationLoader {
         GuiceApplicationBuilder builder = (GuiceApplicationBuilder) ((GuiceApplicationBuilder) this.initialBuilder
                 .in(context.environment()))
                 .loadConfig(context.initialConfiguration());
-        builder = I18NModule.setupI18N(builder, AppLoader.DEFAULT_LANG, getI18nFiles());
+        builder = I18NModule.setupI18N(builder, DEFAULT_LANG, getI18nFiles());
         builder = builder.overrides(this.overrides(context));
 
         return builder;
+    }
+
+    public String getDefaultLang() {
+        return DEFAULT_LANG;
     }
 
     public Set<String> getI18nFiles() {
@@ -43,7 +47,6 @@ public class AppLoader extends GuiceApplicationLoader {
         i18nLangs.add("auth-pass-change-messages");
         i18nLangs.add("auth-pass-reset-messages");
         i18nLangs.add("auth-signup-messages");
-
 
         return i18nLangs;
     }
