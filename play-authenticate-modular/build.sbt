@@ -14,6 +14,7 @@ val appDependencies = Seq(
   cache,
   javaWs,
   javaJdbc,
+  specs2 % Test,
   "org.webjars" % "bootstrap" % "3.2.0",
   "org.easytesting" % "fest-assert" % "1.4" % "test",
   "mysql" % "mysql-connector-java" % "5.1.18"
@@ -34,7 +35,7 @@ routesGenerator := InjectedRoutesGenerator
 //  Uncomment the next line for local development of the Play Authenticate core:
 //lazy val playAuthenticate = project.in(file("modules/play-authenticate")).enablePlugins(PlayJava)
 
-lazy val root = project.in(file("."))
+lazy val root = (project in file("."))
   .enablePlugins(PlayJava, PlayEbean)
   .settings(
     libraryDependencies ++= appDependencies
@@ -44,15 +45,15 @@ lazy val root = project.in(file("."))
   //.aggregate(playAuthenticate)
 
 // Modular language files - App
-unmanagedResourceDirectories in Compile += baseDirectory.value / "app/elements/gui/base/i18n"
-unmanagedResourceDirectories in Compile += baseDirectory.value / "app/elements/gui/restricted/i18n"
-unmanagedResourceDirectories in Compile += baseDirectory.value / "app/elements/gui/index/i18n"
-unmanagedResourceDirectories in Compile += baseDirectory.value / "app/elements/gui/profile/i18n"
+unmanagedResourceDirectories in Compile += baseDirectory.value / "app/com/play/auth/elements/gui/base/i18n"
+unmanagedResourceDirectories in Compile += baseDirectory.value / "app/com/play/auth/elements/gui/restricted/i18n"
+unmanagedResourceDirectories in Compile += baseDirectory.value / "app/com/play/auth/elements/gui/index/i18n"
+unmanagedResourceDirectories in Compile += baseDirectory.value / "app/com/play/auth/elements/gui/profile/i18n"
 
 // Modular language files - Auth
-unmanagedResourceDirectories in Compile += baseDirectory.value / "app/elements/auth/main/i18n"
-unmanagedResourceDirectories in Compile += baseDirectory.value / "app/elements/auth/gui/account/i18n"
-unmanagedResourceDirectories in Compile += baseDirectory.value / "app/elements/auth/gui/login/i18n"
-unmanagedResourceDirectories in Compile += baseDirectory.value / "app/elements/auth/gui/password_change/i18n"
-unmanagedResourceDirectories in Compile += baseDirectory.value / "app/elements/auth/gui/password_remind/i18n"
-unmanagedResourceDirectories in Compile += baseDirectory.value / "app/elements/auth/gui/signup/i18n"
+unmanagedResourceDirectories in Compile += baseDirectory.value / "app/com/play/auth/elements/auth/main/i18n"
+unmanagedResourceDirectories in Compile += baseDirectory.value / "app/com/play/auth/elements/auth/gui/account/i18n"
+unmanagedResourceDirectories in Compile += baseDirectory.value / "app/com/play/auth/elements/auth/gui/login/i18n"
+unmanagedResourceDirectories in Compile += baseDirectory.value / "app/com/play/auth/elements/auth/gui/password_change/i18n"
+unmanagedResourceDirectories in Compile += baseDirectory.value / "app/com/play/auth/elements/auth/gui/password_remind/i18n"
+unmanagedResourceDirectories in Compile += baseDirectory.value / "app/com/play/auth/elements/auth/gui/signup/i18n"

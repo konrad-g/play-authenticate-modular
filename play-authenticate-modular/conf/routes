@@ -3,48 +3,48 @@
 # ~~~~
 
 # App pages
-GET     /                                   controllers.ApplicationController.index
-GET     /restricted                         controllers.ApplicationController.restricted
+GET     /                                      com.play.auth.controllers.AppController.index
+GET     /restricted                            com.play.auth.controllers.AppController.restricted
 
-GET     /profile                            controllers.ApplicationController.profile
+GET     /profile                               com.play.auth.controllers.AppController.profile
 
 # Public auth pages
-GET     /login                              controllers.AuthController.login
-POST    /login                              controllers.AuthController.doLogin
+GET     /login                                 com.play.auth.controllers.AuthController.login
+POST    /login                                 com.play.auth.controllers.AuthController.doLogin
 
-GET     /logout                             com.feth.play.module.pa.controllers.AuthenticateDI.logout
-GET     /authenticate/:provider             com.feth.play.module.pa.controllers.AuthenticateDI.authenticate(provider: String)
+GET     /logout                                com.feth.play.module.pa.controllers.AuthenticateDI.logout
+GET     /authenticate/:provider                com.feth.play.module.pa.controllers.AuthenticateDI.authenticate(provider: String)
 
-GET     /signup                             controllers.AuthController.signup
-POST    /signup                             controllers.AuthController.doSignup
+GET     /signup                                com.play.auth.controllers.AuthController.signup
+POST    /signup                                com.play.auth.controllers.AuthController.doSignup
 
-GET     /accounts/unverified                controllers.AuthController.unverified
-GET     /authenticate/:provider/denied      controllers.AuthController.oAuthDenied(provider: String)
+GET     /accounts/unverified                   com.play.auth.controllers.AuthController.unverified
+GET     /authenticate/:provider/denied         com.play.auth.controllers.AuthController.oAuthDenied(provider: String)
 
-GET     /accounts/verify/:token             controllers.AuthController.verify(token: String)
-GET     /accounts/exists                    controllers.AuthController.exists
+GET     /accounts/verify/:token                com.play.auth.controllers.AuthController.verify(token: String)
+GET     /accounts/exists                       com.play.auth.controllers.AuthController.exists
 
-GET     /accounts/password/reset/:token     controllers.AuthController.resetPassword(token: String)
-POST    /accounts/password/reset            controllers.AuthController.doResetPassword
+GET     /accounts/password/reset/:token        com.play.auth.controllers.AuthController.resetPassword(token: String)
+POST    /accounts/password/reset               com.play.auth.controllers.AuthController.doResetPassword
 
-GET     /login/password/forgot              controllers.AuthController.remindPassword(email: String ?= "")
-POST    /login/password/forgot              controllers.AuthController.doRemindPassword
+GET     /login/password/forgot                 com.play.auth.controllers.AuthController.remindPassword(email: String ?= "")
+POST    /login/password/forgot                 com.play.auth.controllers.AuthController.doRemindPassword
 
-GET     /assets/javascript/routes.js        controllers.AuthController.jsRoutes
+GET     /assets/javascript/routes.js           com.play.auth.controllers.AuthController.jsRoutes
 
 # User specific pages
-GET    /accounts/password/change            controllers.AccountController.changePassword
-POST   /accounts/password/change            controllers.AccountController.doChangePassword
+GET     /accounts/password/change              com.play.auth.controllers.AccountController.changePassword
+POST    /accounts/password/change              com.play.auth.controllers.AccountController.doChangePassword
 
-GET     /accounts/verify                    controllers.AccountController.verifyEmail
+GET     /accounts/verify                       com.play.auth.controllers.AccountController.verifyEmail
 
-GET     /accounts/add                       controllers.AccountController.link
+GET     /accounts/add                          com.play.auth.controllers.AccountController.link
 
-GET     /accounts/link                      controllers.AccountController.askLink
-POST    /accounts/link                      controllers.AccountController.doLink
+GET     /accounts/link                         com.play.auth.controllers.AccountController.askLink
+POST    /accounts/link                         com.play.auth.controllers.AccountController.doLink
 
-GET     /accounts/merge                     controllers.AccountController.askMerge
-POST    /accounts/merge                     controllers.AccountController.doMerge
+GET     /accounts/merge                        com.play.auth.controllers.AccountController.askMerge
+POST    /accounts/merge                        com.play.auth.controllers.AccountController.doMerge
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file                       controllers.Assets.versioned(path="/public", file: Asset)
+GET     /assets/*file                          controllers.Assets.versioned(path="/public", file: Asset)
