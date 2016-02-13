@@ -75,39 +75,16 @@ playauthenticate.token.error.message=Podany token stracił ważność lub nie is
 
 
 
-# play-authenticate: Navigation
-playauthenticate.navigation.profile=Profil
-playauthenticate.navigation.link_more=Dołącz więcej dostawców
-playauthenticate.navigation.logout=Wyloguj się
-playauthenticate.navigation.login=Zaloguj się
-playauthenticate.navigation.home=Strona główna
-playauthenticate.navigation.restricted=Strona zastrzeżona
-playauthenticate.navigation.signup=Zarejestruj się
+
 
 # play-authenticate: Handler
-playauthenticate.handler.loginfirst=Musisz się zalogować, aby uzyskać dostęp do strony ''{0}''
 
 # play-authenticate: Profile
-playauthenticate.profile.title=Profil użytkownika
-playauthenticate.profile.mail=Nazywasz się {0} a twój e-mail to {1}!
-playauthenticate.profile.unverified=Niezweryfikowany - kliknij
-playauthenticate.profile.verified=zweryfikowany
-playauthenticate.profile.providers_many=Dostawcy podłączeni do Twojego konta ({0}):
-playauthenticate.profile.providers_one = Jedyny dostawca podłączony do Twojego konta:
-playauthenticate.profile.logged=Do obecnego zalogowania użyto:
-playauthenticate.profile.session=ID tego konta to {0} a jego sesja wygaśnie {1}
-playauthenticate.profile.session_endless=ID tego konta to {0}, jego sesja nie wygasa automatycznie
-playauthenticate.profile.password_change=Zmień lub ustaw hasło dla tego konta
+
 
 # play-authenticate - przykład: Index page
-playauthenticate.index.title=Witaj w Play Authenticate
-playauthenticate.index.intro=Przykład Play Authenticate
-playauthenticate.index.intro_2=Oto szablon prostej aplikacji wykorzystującej Play Authenticate.
-playauthenticate.index.intro_3=Skorzystaj z powyższej nawigacji aby przetestować działanie autentykacji.
-playauthenticate.index.heading=Nagłówek
-playauthenticate.index.details=Szczegóły
+
 
 # play-authenticate - przykład: Restricted page
-playauthenticate.restricted.secrets=Tajemnice, tajemnice, tajemnice... Wszędzie tajemnice!
 
 ### --- play-authenticate END

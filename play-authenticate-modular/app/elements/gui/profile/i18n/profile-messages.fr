@@ -1,0 +1,10 @@
+playauthenticate.profile.title=Profile d'utilisateur
+playauthenticate.profile.mail=Votre nom est {0} et votre adresse email {1}!
+playauthenticate.profile.unverified=non vérifiée - cliquer pour vérifier
+playauthenticate.profile.verified=vérifiée
+playauthenticate.profile.providers_many=Il y a {0} fournisseurs liés à ce compte:
+playauthenticate.profile.providers_one =Il y a un fournisseur lié à ce compte:
+playauthenticate.profile.logged=Vous êtes connecté avec:
+playauthenticate.profile.session=Votre ID d'utilisateur est {0} et votre session se termine le {1}
+playauthenticate.profile.session_endless=Votre ID d'utilisateur est {0} et votre session ne se terminera jamais
+playauthenticate.profile.password_change=Changer le mot de passe de votre compte

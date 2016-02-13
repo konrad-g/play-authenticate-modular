@@ -5,3 +5,5 @@ playauthenticate.signup.oauth=or sign up using one of the following providers:
 
 playauthenticate.user.exists.title=User exists
 playauthenticate.user.exists.message=This user already exists.
+
+playauthenticate.password.signup.error.passwords_not_same=Passwords do not match.

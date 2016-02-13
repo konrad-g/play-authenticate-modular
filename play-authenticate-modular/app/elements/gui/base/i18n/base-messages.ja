@@ -22,3 +22,12 @@ error.minLength=文字列は最短 {0} 文字です
 error.maxLength=文字列は最長 {0} 文字です
 error.email=正しい電子メールアドレスにしてください
 error.pattern={0} を満たす必要があります。
+
+# play-authenticate: Navigation
+playauthenticate.navigation.profile=プロフィール
+playauthenticate.navigation.link_more=ほかのプロバイダーと紐付ける
+playauthenticate.navigation.logout=サインアウト
+playauthenticate.navigation.login=ログイン
+playauthenticate.navigation.home=ホーム
+playauthenticate.navigation.restricted=制限されたページ
+playauthenticate.navigation.signup=サインアップ

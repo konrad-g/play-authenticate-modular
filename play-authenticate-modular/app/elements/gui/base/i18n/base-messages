@@ -22,3 +22,12 @@ error.minLength=Minimum length is {0}
 error.maxLength=Maximum length is {0}
 error.email=Valid email required
 error.pattern=Must satisfy {0}
+
+# Navigation
+playauthenticate.navigation.profile=Profile
+playauthenticate.navigation.link_more=Link more providers
+playauthenticate.navigation.logout=Sign out
+playauthenticate.navigation.login=Log in
+playauthenticate.navigation.home=Home
+playauthenticate.navigation.restricted=Restricted page
+playauthenticate.navigation.signup=Sign up

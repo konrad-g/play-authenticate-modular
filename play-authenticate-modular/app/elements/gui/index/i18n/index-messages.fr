@@ -1,0 +1,6 @@
+playauthenticate.index.title=Bienvenu sur Play Authenticate
+playauthenticate.index.intro=Play Authenticate démo
+playauthenticate.index.intro_2=Ceci est un modèle d'application avec authentification.
+playauthenticate.index.intro_3=Essayez la barre de navigation pour voir les fonctions d'authentification.
+playauthenticate.index.heading=Entête
+playauthenticate.index.details=Voir les détails

@@ -6,3 +6,5 @@ playauthenticate.login.password.placeholder=Hasło
 playauthenticate.login.now=Zaloguj się
 playauthenticate.login.forgot.password=Nie pamiętasz hasła?
 playauthenticate.login.oauth=lub zaloguj się z innym dostawcą:
+
+playauthenticate.handler.loginfirst=Musisz się zalogować, aby uzyskać dostęp do strony ''{0}''

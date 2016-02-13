@@ -35,9 +35,9 @@ public class AppLoader extends GuiceApplicationLoader {
 
         // App
         i18nLangs.add("base-messages");
-        i18nLangs.add("error-messages");
         i18nLangs.add("index-messages");
         i18nLangs.add("profile-messages");
+        i18nLangs.add("restricted-messages");
 
         // Auth
         i18nLangs.add("auth-main-messages");

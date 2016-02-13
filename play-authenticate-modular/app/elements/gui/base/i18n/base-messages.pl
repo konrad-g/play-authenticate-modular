@@ -22,3 +22,12 @@ error.minLength=Minimalna długość {0}
 error.maxLength=Maksymalna długość {0}
 error.email=Wymagany poprawny adres e-mail
 error.pattern=Musi spełnić {0}
+
+# play-authenticate: Navigation
+playauthenticate.navigation.profile=Profil
+playauthenticate.navigation.link_more=Dołącz więcej dostawców
+playauthenticate.navigation.logout=Wyloguj się
+playauthenticate.navigation.login=Zaloguj się
+playauthenticate.navigation.home=Strona główna
+playauthenticate.navigation.restricted=Strona zastrzeżona
+playauthenticate.navigation.signup=Zarejestruj się

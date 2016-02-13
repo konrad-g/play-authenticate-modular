@@ -1,0 +1,10 @@
+playauthenticate.profile.title=Perfil de usuario
+playauthenticate.profile.mail=Su nombre es {0} y su dirección de mail es {1}!
+playauthenticate.profile.unverified=sin validar - haga click para validar
+playauthenticate.profile.verified=validada
+playauthenticate.profile.providers_many=Hay {0} proveedores enlazados con su cuenta:
+playauthenticate.profile.providers_one = Hay un proveedor enlazado con su cuenta:
+playauthenticate.profile.logged=Ha entrado con:
+playauthenticate.profile.session=Su ID de usuario es {0}. Su sesión expirará el {1}.
+playauthenticate.profile.session_endless=Su ID de usuario es {0}. Su sesión no expirará nunca porque no tiene caducidad.
+playauthenticate.profile.password_change=Cambie/establezca una contraseña para su cuenta

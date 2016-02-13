@@ -45,7 +45,7 @@ lazy val root = project.in(file("."))
 
 // Modular language files - App
 unmanagedResourceDirectories in Compile += baseDirectory.value / "app/elements/gui/base/i18n"
-unmanagedResourceDirectories in Compile += baseDirectory.value / "app/elements/gui/error/i18n"
+unmanagedResourceDirectories in Compile += baseDirectory.value / "app/elements/gui/restricted/i18n"
 unmanagedResourceDirectories in Compile += baseDirectory.value / "app/elements/gui/index/i18n"
 unmanagedResourceDirectories in Compile += baseDirectory.value / "app/elements/gui/profile/i18n"
 

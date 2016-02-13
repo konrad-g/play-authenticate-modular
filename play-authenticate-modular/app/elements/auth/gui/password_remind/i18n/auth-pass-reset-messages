@@ -1,0 +1,11 @@
+playauthenticate.reset_password.message.instructions_sent=Instructions on how to reset your password have been sent to {0}.
+playauthenticate.reset_password.message.email_not_verified=Your account has not been verified, yet. An e-mail including instructions on how to verify it has been sent out. Retry resetting your password afterwards.
+playauthenticate.reset_password.message.no_password_account=Your user has not yet been set up for password usage.
+playauthenticate.reset_password.message.success.auto_login=Your password has been reset.
+playauthenticate.reset_password.message.success.manual_login=Your password has been reset. Please now log in using your new password.
+
+playauthenticate.password.reset.title=Reset password
+playauthenticate.password.reset.cta=Reset my password
+
+playauthenticate.password.forgot.title=Forgot password
+playauthenticate.password.forgot.cta=Send reset instructions

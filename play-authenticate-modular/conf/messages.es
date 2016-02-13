@@ -72,39 +72,16 @@ playauthenticate.token.error.message=El token ha caducado o no existe.
 
 
 
-# play-authenticate: Navigation
-playauthenticate.navigation.profile=Perfil
-playauthenticate.navigation.link_more=Enlazar más proveedores
-playauthenticate.navigation.logout=Salir
-playauthenticate.navigation.login=Entrar
-playauthenticate.navigation.home=Inicio
-playauthenticate.navigation.restricted=Página restringida
-playauthenticate.navigation.signup=Dárse de alta
+
 
 # play-authenticate: Handler
-playauthenticate.handler.loginfirst=Para ver ''{0}'', debe darse primero de alta.
 
 # play-authenticate: Profile
-playauthenticate.profile.title=Perfil de usuario
-playauthenticate.profile.mail=Su nombre es {0} y su dirección de mail es {1}!
-playauthenticate.profile.unverified=sin validar - haga click para validar
-playauthenticate.profile.verified=validada
-playauthenticate.profile.providers_many=Hay {0} proveedores enlazados con su cuenta:
-playauthenticate.profile.providers_one = Hay un proveedor enlazado con su cuenta:
-playauthenticate.profile.logged=Ha entrado con:
-playauthenticate.profile.session=Su ID de usuario es {0}. Su sesión expirará el {1}.
-playauthenticate.profile.session_endless=Su ID de usuario es {0}. Su sesión no expirará nunca porque no tiene caducidad.
-playauthenticate.profile.password_change=Cambie/establezca una contraseña para su cuenta
+
 
 # play-authenticate - sample: Index page
-playauthenticate.index.title=Bienvenido Play Authenticate
-playauthenticate.index.intro=Aplicación de ejemplo de Play Authenticate
-playauthenticate.index.intro_2=Esto es una plantilla para una sencilla aplicación con autentificación y autorización
-playauthenticate.index.intro_3=Mire la barra de navegación superior para ver ejemplos sencillos incluyendo las características soportadas de autentificación.
-playauthenticate.index.heading=Cabecera
-playauthenticate.index.details=Ver detalles
+
 
 # play-authenticate - sample: Restricted page
-playauthenticate.restricted.secrets=¡Secretos y más secretos!
 
 ### --- play-authenticate END

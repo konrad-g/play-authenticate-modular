@@ -6,3 +6,5 @@ playauthenticate.login.password.placeholder=パスワード
 playauthenticate.login.now=ログイン完了
 playauthenticate.login.forgot.password=パスワードをお忘れですか？
 playauthenticate.login.oauth=または以下のプロバイダーからログイン：
+
+playauthenticate.handler.loginfirst=''{0}'' を見るにはまずログインが必要です。

@@ -1,0 +1,10 @@
+playauthenticate.profile.title=Profil użytkownika
+playauthenticate.profile.mail=Nazywasz się {0} a twój e-mail to {1}!
+playauthenticate.profile.unverified=Niezweryfikowany - kliknij
+playauthenticate.profile.verified=zweryfikowany
+playauthenticate.profile.providers_many=Dostawcy podłączeni do Twojego konta ({0}):
+playauthenticate.profile.providers_one = Jedyny dostawca podłączony do Twojego konta:
+playauthenticate.profile.logged=Do obecnego zalogowania użyto:
+playauthenticate.profile.session=ID tego konta to {0} a jego sesja wygaśnie {1}
+playauthenticate.profile.session_endless=ID tego konta to {0}, jego sesja nie wygasa automatycznie
+playauthenticate.profile.password_change=Zmień lub ustaw hasło dla tego konta

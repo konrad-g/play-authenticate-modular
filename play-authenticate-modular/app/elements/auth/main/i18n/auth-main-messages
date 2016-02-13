@@ -1,0 +1,5 @@
+playauthenticate.password.verify_signup.subject=PlayAuthenticate: Complete your signup
+playauthenticate.password.verify_email.subject=PlayAuthenticate: Confirm your e-mail address
+playauthenticate.password.reset_email.subject=PlayAuthenticate: How to reset your password
+
+playauthenticate.handler.loginfirst=You need to log in first, to view ''{0}''

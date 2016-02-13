@@ -22,3 +22,12 @@ error.minLength=Longueur minimale: {0}
 error.maxLength=Longueur maximale: {0}
 error.email=Un email valide est obligatoire
 error.pattern=Doit satisfaire: {0}
+
+# play-authenticate: Navigation
+playauthenticate.navigation.profile=Profile
+playauthenticate.navigation.link_more=Lier d'autres fournisseurs
+playauthenticate.navigation.logout=Se Déconnecter
+playauthenticate.navigation.login=Se Connecter
+playauthenticate.navigation.home=Page Principale
+playauthenticate.navigation.restricted=Page Protégée
+playauthenticate.navigation.signup=S'enregister

@@ -1,0 +1,10 @@
+playauthenticate.profile.title=Profil pengguna
+playauthenticate.profile.mail=Nama kamu {0} dan alamat email kamu adalah {1}!
+playauthenticate.profile.unverified=belum diverifikasi - klik untuk verifikasi
+playauthenticate.profile.verified=sudah terverifikasi
+playauthenticate.profile.providers_many=Ada {0} penyedia yang disambungkan dengan akun kamu:
+playauthenticate.profile.providers_one = Ada satu penyedia yang disambungkan dengan akun kamu:
+playauthenticate.profile.logged=Saat ini kamu masuk dengan:
+playauthenticate.profile.session=user ID kamu {0} dan sesi kamu akan kadaluarsa pada {1}
+playauthenticate.profile.session_endless=user ID kamu {0} dan sesi kamu tidak akan kadaluarsa, semacam seumur hidup
+playauthenticate.profile.password_change=Ubah / atur password untuk akun kamu

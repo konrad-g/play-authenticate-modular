@@ -73,39 +73,15 @@ playauthenticate.token.error.title=Erro no "token"
 playauthenticate.token.error.message=O "token" fornecido expirou ou não existe.
 
 
-# play-authenticate: Navigation
-playauthenticate.navigation.profile=Perfil
-playauthenticate.navigation.link_more=Ligar mais serviços
-playauthenticate.navigation.logout=Sair
-playauthenticate.navigation.login=Autenticar
-playauthenticate.navigation.home=Home
-playauthenticate.navigation.restricted=Página restrita
-playauthenticate.navigation.signup=Registar
+
 
 # play-authenticate: Handler
-playauthenticate.handler.loginfirst=Precisa de autenticar-se para ver ''{0}''
 
 # play-authenticate: Profile
-playauthenticate.profile.title=Perfil de utilizador
-playauthenticate.profile.mail=O seu nome á {0} e o seu endereço de email é {1}!
-playauthenticate.profile.unverified=não verificado - clique para verificar
-playauthenticate.profile.verified=verificado
-playauthenticate.profile.providers_many=Há {0} serviços ligados á sua conta:
-playauthenticate.profile.providers_one = Não há serviços ligados á sua conta:
-playauthenticate.profile.logged=Está actualmente autenticado com:
-playauthenticate.profile.session=O seu ID de utilzador é {0} e a sua sessão irá experirar em {1}
-playauthenticate.profile.session_endless=O seu ID de utilzador é {0} e a sua sessão não irá experirar, porque não tem fim
-playauthenticate.profile.password_change=Alterar/criar palavra passe para esta conta
 
 # play-authenticate - sample: Index page
-playauthenticate.index.title=Bem-vindo ao Play Authenticate
-playauthenticate.index.intro=Play Authenticate aplicação exemplo
-playauthenticate.index.intro_2=This is a template for a simple application with authentication.
-playauthenticate.index.intro_3=Check the main navigation above for simple page examples including supported authentication features.
-playauthenticate.index.heading=Cabeçalho
-playauthenticate.index.details=Ver detalhes
+
 
 # play-authenticate - sample: Restricted page
-playauthenticate.restricted.secrets=Segredos, por todo o lado!
 
 ### --- play-authenticate END

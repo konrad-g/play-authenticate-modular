@@ -1,0 +1,10 @@
+playauthenticate.profile.title=Perfil de utilizador
+playauthenticate.profile.mail=O seu nome á {0} e o seu endereço de email é {1}!
+playauthenticate.profile.unverified=não verificado - clique para verificar
+playauthenticate.profile.verified=verificado
+playauthenticate.profile.providers_many=Há {0} serviços ligados á sua conta:
+playauthenticate.profile.providers_one = Não há serviços ligados á sua conta:
+playauthenticate.profile.logged=Está actualmente autenticado com:
+playauthenticate.profile.session=O seu ID de utilzador é {0} e a sua sessão irá experirar em {1}
+playauthenticate.profile.session_endless=O seu ID de utilzador é {0} e a sua sessão não irá experirar, porque não tem fim
+playauthenticate.profile.password_change=Alterar/criar palavra passe para esta conta

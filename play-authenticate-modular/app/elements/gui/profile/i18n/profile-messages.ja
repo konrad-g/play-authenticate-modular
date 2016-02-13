@@ -1,0 +1,10 @@
+playauthenticate.profile.title=ユーザープロフィール
+playauthenticate.profile.mail=あなたのお名前は {0} でメールアドレスは {1} です！
+playauthenticate.profile.unverified=未確認 - 確認を押してください
+playauthenticate.profile.verified=確認済
+playauthenticate.profile.providers_many={0} 個のプロバイダーがアカウントに紐付いています：
+playauthenticate.profile.providers_one = 1 個のプロバイダーがアカウントに紐付いています：
+playauthenticate.profile.logged=現在次の手段でログインしています：
+playauthenticate.profile.session=あなたのユーザーIDは {0} でセッションは {1} に失効します
+playauthenticate.profile.session_endless=あなたのユーザーIDは {0} でセッションは永遠に失効しません
+playauthenticate.profile.password_change=パスワードの変更／設定

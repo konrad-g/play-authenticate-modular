@@ -1,0 +1,31 @@
+playauthenticate.accounts.link.success=Account linked successfully
+playauthenticate.accounts.merge.success=Accounts merged successfully
+
+playauthenticate.verify_email.error.already_validated=Your e-mail has already been validated.
+playauthenticate.verify_email.error.set_email_first=You need to set an e-mail address first.
+playauthenticate.verify_email.message.instructions_sent=Instructions on how to verify your e-mail address have been sent to {0}.
+playauthenticate.verify_email.success=E-mail address ({0}) successfully verified.
+
+playauthenticate.merge.accounts.title=Merge accounts
+playauthenticate.merge.accounts.question=Do you want to merge your current account ({0}) with this account: {1}?
+playauthenticate.merge.accounts.true=Yes, merge these two accounts
+playauthenticate.merge.accounts.false=No, exit my current session and log in as a new user
+playauthenticate.merge.accounts.ok=OK
+
+playauthenticate.link.account.title=Link account
+playauthenticate.link.account.question=Link ({0}) with your user?
+playauthenticate.link.account.true=Yes, link this account
+playauthenticate.link.account.false=No, log out and create a new user with this account
+playauthenticate.link.account.ok=OK
+
+playauthenticate.verify.email.title=Verify your e-mail
+playauthenticate.verify.email.requirement=Before you can use PlayAuthenticate, you first need to verify your e-mail address.
+playauthenticate.verify.email.cta=An e-mail has been sent to the registered address. Please follow the embedded link to activate your account.
+
+playauthenticate.oauth.access.denied.title=OAuth access denied
+playauthenticate.oauth.access.denied.explanation=If you want to use PlayAuthenticate with OAuth, you must accept the connection.
+playauthenticate.oauth.access.denied.alternative=If you rather not like to do this, you can also
+playauthenticate.oauth.access.denied.alternative.cta=sign up with a username and password instead
+
+playauthenticate.token.error.title=Token error
+playauthenticate.token.error.message=The given token has either expired or does not exist.

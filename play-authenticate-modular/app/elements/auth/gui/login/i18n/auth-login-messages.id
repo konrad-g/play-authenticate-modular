@@ -7,3 +7,5 @@ playauthenticate.login.now=Masuk sekarang
 playauthenticate.login.forgot.password=Lupa password kamu?
 playauthenticate.login.oauth=atau masuk menggunakan salah satu dari provider berikut:
 playauthenticate.login.basic=atau coba autentikasi HTTP dasar (sebagai contoh / rahasia)
+
+playauthenticate.handler.loginfirst=Kamu harus masuk terlebih dahulu untuk melihat ''{0}''

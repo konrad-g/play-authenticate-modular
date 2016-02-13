@@ -7,3 +7,5 @@ playauthenticate.login.now=Login now
 playauthenticate.login.forgot.password=Forgot your password?
 playauthenticate.login.oauth=or log in using one of the following providers:
 playauthenticate.login.basic=or try HTTP basic auth (as example/secret)
+
+playauthenticate.password.login.unknown_user_or_pw=Unknown user or password.

@@ -22,3 +22,12 @@ error.minLength=Panjang minimum adalah {0}
 error.maxLength=Panjang maksimum adalah {0}
 error.email=Email valid diharapkan
 error.pattern=Harus sesuai dengan {0}
+
+# play-authenticate: Navigation
+playauthenticate.navigation.profile=Profil
+playauthenticate.navigation.link_more=Sambungkan provider lain
+playauthenticate.navigation.logout=Keluar
+playauthenticate.navigation.login=Masuk
+playauthenticate.navigation.home=Beranda
+playauthenticate.navigation.restricted=Laman terlarang
+playauthenticate.navigation.signup=Daftar

@@ -1,0 +1,10 @@
+playauthenticate.profile.title=User profile
+playauthenticate.profile.mail=Your name is {0} and your email address is {1}!
+playauthenticate.profile.unverified=unverified - click to verify
+playauthenticate.profile.verified=verified
+playauthenticate.profile.providers_many=There are {0} providers linked with your account:
+playauthenticate.profile.providers_one = There is one provider linked with your account:
+playauthenticate.profile.logged=You are currently logged in with:
+playauthenticate.profile.session=Your user ID is {0} and your session will expire on {1}
+playauthenticate.profile.session_endless=Your user ID is {0} and your session will not expire, as it is endless
+playauthenticate.profile.password_change=Change/set a password for your account

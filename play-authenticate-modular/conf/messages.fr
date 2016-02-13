@@ -71,39 +71,14 @@ playauthenticate.oauth.access.denied.alternative.cta=vous enregistrer avec un no
 playauthenticate.token.error.title=Erreur de token
 playauthenticate.token.error.message=Le token reçu est soit trop vieux, soit il n'existe pas.
 
-# play-authenticate: Navigation
-playauthenticate.navigation.profile=Profile
-playauthenticate.navigation.link_more=Lier d'autres fournisseurs
-playauthenticate.navigation.logout=Se Déconnecter
-playauthenticate.navigation.login=Se Connecter
-playauthenticate.navigation.home=Page Principale
-playauthenticate.navigation.restricted=Page Protégée
-playauthenticate.navigation.signup=S'enregister
 
 # play-authenticate: Handler
-playauthenticate.handler.loginfirst=Vous devez vous connecter pour accéder à: ''{0}''
 
 # play-authenticate: Profile
-playauthenticate.profile.title=Profile d'utilisateur
-playauthenticate.profile.mail=Votre nom est {0} et votre adresse email {1}!
-playauthenticate.profile.unverified=non vérifiée - cliquer pour vérifier
-playauthenticate.profile.verified=vérifiée
-playauthenticate.profile.providers_many=Il y a {0} fournisseurs liés à ce compte:
-playauthenticate.profile.providers_one =Il y a un fournisseur lié à ce compte:
-playauthenticate.profile.logged=Vous êtes connecté avec:
-playauthenticate.profile.session=Votre ID d'utilisateur est {0} et votre session se termine le {1}
-playauthenticate.profile.session_endless=Votre ID d'utilisateur est {0} et votre session ne se terminera jamais
-playauthenticate.profile.password_change=Changer le mot de passe de votre compte
+
 
 # play-authenticate - sample: Index page
-playauthenticate.index.title=Bienvenu sur Play Authenticate
-playauthenticate.index.intro=Play Authenticate démo
-playauthenticate.index.intro_2=Ceci est un modèle d'application avec authentification.
-playauthenticate.index.intro_3=Essayez la barre de navigation pour voir les fonctions d'authentification.
-playauthenticate.index.heading=Entête
-playauthenticate.index.details=Voir les détails
 
 # play-authenticate - sample: Restricted page
-playauthenticate.restricted.secrets=Ils nous cachent la vérité!
 
 ### --- play-authenticate END

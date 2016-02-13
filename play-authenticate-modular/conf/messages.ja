@@ -72,39 +72,16 @@ playauthenticate.oauth.access.denied.alternative.cta=ユーザー名とパスワ
 playauthenticate.token.error.title=トークンエラー
 playauthenticate.token.error.message=与えられたトークンは失効しているか存在しません。
 
-# play-authenticate: Navigation
-playauthenticate.navigation.profile=プロフィール
-playauthenticate.navigation.link_more=ほかのプロバイダーと紐付ける
-playauthenticate.navigation.logout=サインアウト
-playauthenticate.navigation.login=ログイン
-playauthenticate.navigation.home=ホーム
-playauthenticate.navigation.restricted=制限されたページ
-playauthenticate.navigation.signup=サインアップ
+
 
 # play-authenticate: Handler
-playauthenticate.handler.loginfirst=''{0}'' を見るにはまずログインが必要です。
 
 # play-authenticate: Profile
-playauthenticate.profile.title=ユーザープロフィール
-playauthenticate.profile.mail=あなたのお名前は {0} でメールアドレスは {1} です！
-playauthenticate.profile.unverified=未確認 - 確認を押してください
-playauthenticate.profile.verified=確認済
-playauthenticate.profile.providers_many={0} 個のプロバイダーがアカウントに紐付いています：
-playauthenticate.profile.providers_one = 1 個のプロバイダーがアカウントに紐付いています：
-playauthenticate.profile.logged=現在次の手段でログインしています：
-playauthenticate.profile.session=あなたのユーザーIDは {0} でセッションは {1} に失効します
-playauthenticate.profile.session_endless=あなたのユーザーIDは {0} でセッションは永遠に失効しません
-playauthenticate.profile.password_change=パスワードの変更／設定
+
 
 # play-authenticate - sample: Index page
-playauthenticate.index.title=Play Authenticate へようこそ！
-playauthenticate.index.intro=Play Authenticate サンプルアプリ
-playauthenticate.index.intro_2=これは認証機能を持つシンプルなアプリケーションです。
-playauthenticate.index.intro_3=上にあるメインナビゲーションでサポートされた認証機能をお試しください。
-playauthenticate.index.heading=タイトル
-playauthenticate.index.details=詳細を見る
+
 
 # play-authenticate - sample: Restricted page
-playauthenticate.restricted.secrets=ふふ、秘密はどこにでもあるのですよ！
 
 ### --- play-authenticate END

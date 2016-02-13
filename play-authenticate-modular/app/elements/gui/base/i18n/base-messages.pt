@@ -22,3 +22,12 @@ error.minLength=O comprimento mínimo é {0}
 error.maxLength=O comprimento máximo é {0}
 error.email=á necessário email válido
 error.pattern=Tem que satisfazer {0}
+
+# play-authenticate: Navigation
+playauthenticate.navigation.profile=Perfil
+playauthenticate.navigation.link_more=Ligar mais serviços
+playauthenticate.navigation.logout=Sair
+playauthenticate.navigation.login=Autenticar
+playauthenticate.navigation.home=Home
+playauthenticate.navigation.restricted=Página restrita
+playauthenticate.navigation.signup=Registar
