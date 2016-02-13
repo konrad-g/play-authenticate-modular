@@ -1,5 +1,6 @@
 package com.play.auth.test.controllers;
 
+import com.play.auth.controllers.AppController;
 import com.play.auth.test.BaseTest;
 import org.junit.*;
 
@@ -28,18 +29,13 @@ public class AppControllerTest extends BaseTest {
         running(this.application, new Runnable() {
             public void run() {
 
-                // Given I'm anonymous
-                // When I call main page
-                /*
-                MainController mainController = new MainController();
+                AppController appController = new AppController();
 
-                // Then I receive page
-                Result result =  mainController.indexI18N("", "", "", 0, Configuration.DEFAULT_LANGUAGE_CODE);
+                Result result =  appController.index();
                 assertEquals(200, result.status());
                 assertEquals("text/html", result.contentType());
 
-                assertTrue(contentAsString(result).contains("<h3>All jobs in one place</h3>"));
-                */
+                assertTrue(contentAsString(result).contains("This is a template for a simple application with authentication."));
             }
         });
     }
@@ -49,6 +45,7 @@ public class AppControllerTest extends BaseTest {
      * When I call profile page
      * Then I can't access it
      */
+    @Test
     public void profileNotLoggedIn() {
         running(this.application, new Runnable() {
             public void run() {
@@ -63,6 +60,7 @@ public class AppControllerTest extends BaseTest {
      * When I call profile page
      * Then I get it
      */
+    @Test
     public void profileLoggedIn() {
         running(this.application, new Runnable() {
             public void run() {
