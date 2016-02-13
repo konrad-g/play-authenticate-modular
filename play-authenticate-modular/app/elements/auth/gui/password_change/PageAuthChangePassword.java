@@ -37,9 +37,9 @@ public class PageAuthChangePassword {
 
     public Result renderChangePassword() {
         com.feth.play.module.pa.controllers.AuthenticateDI.noCache(this.session.response());
-        final EntryUser u = this.session.getCurrentUser().get();
+        final EntryUser user = this.session.getCurrentUser().get();
 
-        if (!u.emailValidated) {
+        if (!user.emailValidated) {
 
             String title = Messages.get("playauthenticate.verify.account.title");
             String description = Messages.get("playauthenticate.verify.account.description");

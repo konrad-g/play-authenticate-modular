@@ -2,11 +2,13 @@ package elements.auth.gui.password_remind;
 
 import com.feth.play.module.pa.PlayAuthenticate;
 import controllers.routes;
+import elements.auth.gui.account.PageAuthAccount;
 import elements.auth.gui.account.html.ViewNoTokenOrInvalid;
-import elements.auth.gui.password_remind.html.ViewPasswordForgot;
+import elements.auth.gui.password_remind.html.ViewPasswordRemind;
 import elements.auth.gui.password_remind.html.ViewPasswordReset;
 import elements.auth.main.*;
 import elements.common.OnRenderListener;
+import elements.gui.base.ContentInner;
 import elements.session.Session;
 import play.data.Form;
 import play.i18n.Messages;
@@ -29,28 +31,40 @@ public class PageAuthRemindPassword {
         this.onRenderListener = onRenderListener;
     }
 
-    private static final Form<ModelAuth.PasswordReset> PASSWORD_RESET_FORM = form(ModelAuth.PasswordReset.class);
-    private static final Form<ModelAuth.Identity> FORGOT_PASSWORD_FORM = form(ModelAuth.Identity.class);
+    private Form<ModelAuth.PasswordReset> getResetPasswordForm() {
+        return form(ModelAuth.PasswordReset.class);
+    }
+
+    private Form<ModelAuth.Identity> getForgotPasswordForm() {
+        return form(ModelAuth.Identity.class);
+    }
 
     public Result renderRemindPassword(final String email) {
-        com.feth.play.module.pa.controllers.AuthenticateDI.noCache(this.session.response());
-        Form<ModelAuth.Identity> form = FORGOT_PASSWORD_FORM;
-        if (email != null && !email.trim().isEmpty()) {
-            form = FORGOT_PASSWORD_FORM.fill(new ModelAuth.Identity(email));
-        }
-        ViewPasswordForgot.render(form)
 
-        return ok();
+        com.feth.play.module.pa.controllers.AuthenticateDI.noCache(this.session.response());
+        Form<ModelAuth.Identity> form = getForgotPasswordForm();
+
+        if (email != null && !email.trim().isEmpty()) {
+            form = form.fill(new ModelAuth.Identity(email));
+        }
+
+        boolean disableIndexing = false;
+        ContentInner contentInner = renderRemindPasswordView(form);
+
+        return Results.ok(this.onRenderListener.onRender(contentInner, disableIndexing));
     }
 
     public Result doRemindPassword() {
         com.feth.play.module.pa.controllers.AuthenticateDI.noCache(this.session.response());
-        final Form<ModelAuth.Identity> filledForm = FORGOT_PASSWORD_FORM
+        final Form<ModelAuth.Identity> filledForm =  getForgotPasswordForm()
                 .bindFromRequest();
         if (filledForm.hasErrors()) {
             // User did not fill in his/her email
-            Content content = ViewPasswordForgot.render(filledForm);
-            return badRequest();
+
+            boolean disableIndexing = false;
+            ContentInner contentInner = renderRemindPasswordView(filledForm);
+
+            return Results.badRequest(this.onRenderListener.onRender(contentInner, disableIndexing));
         } else {
             // The email address given *BY AN UNKNWON PERSON* to the form - we
             // should find out if we actually have a user with this email
@@ -93,49 +107,56 @@ public class PageAuthRemindPassword {
                 }
             }
 
-            return redirect(controllers.routes.ApplicationController.index());
+            return Results.redirect(controllers.routes.ApplicationController.index());
         }
     }
 
     public Result renderResetPassword(final String token) {
-        com.feth.play.module.pa.controllers.AuthenticateDI.noCache(response());
+        com.feth.play.module.pa.controllers.AuthenticateDI.noCache(this.session.response());
         final EntryTokenAction ta = Auth.isTokenValid(token, EntryTokenAction.Type.PASSWORD_RESET);
         if (ta == null) {
 
-            ViewNoTokenOrInvalid.render()
+            ContentInner contentInner = new PageAuthAccount(this.session, this.onRenderListener).renderNoTokenOrInvalidView();
+            boolean disableIndexing = false;
 
-            return badRequest();
+            return Results.badRequest(this.onRenderListener.onRender(contentInner, disableIndexing));
         }
 
-        return ok(ViewPasswordReset.render(PASSWORD_RESET_FORM
-                .fill(new ModelAuth.PasswordReset(token))));
+        boolean disableIndexing = false;
+        ContentInner contentInner = renderResetPasswordView(getResetPasswordForm()
+                .fill(new ModelAuth.PasswordReset(token)));
+
+        return Results.ok(this.onRenderListener.onRender(contentInner, disableIndexing));
     }
 
     public Result doResetPassword() {
-        com.feth.play.module.pa.controllers.AuthenticateDI.noCache(response());
-        final Form<ModelAuth.PasswordReset> filledForm = PASSWORD_RESET_FORM
+        com.feth.play.module.pa.controllers.AuthenticateDI.noCache(this.session.response());
+        final Form<ModelAuth.PasswordReset> filledForm = getResetPasswordForm()
                 .bindFromRequest();
         if (filledForm.hasErrors()) {
-            Content content = ViewPasswordReset.render(filledForm);
-            return badRequest();
+
+            boolean disableIndexing = false;
+            ContentInner contentInner = renderResetPasswordView(filledForm);
+
+            return Results.badRequest(this.onRenderListener.onRender(contentInner, disableIndexing));
         } else {
             final String token = filledForm.get().token;
             final String newPassword = filledForm.get().password;
 
-            final EntryTokenAction ta = Auth.isTokenValid(token, EntryTokenAction.Type.PASSWORD_RESET);
-            if (ta == null) {
+            final EntryTokenAction tokenAction = Auth.isTokenValid(token, EntryTokenAction.Type.PASSWORD_RESET);
+            if (tokenAction == null) {
 
-                Content content = ViewNoTokenOrInvalid.render();
+                ContentInner contentInner = new PageAuthAccount(this.session, this.onRenderListener).renderNoTokenOrInvalidView();
+                boolean disableIndexing = false;
 
-                return badRequest();
+                return Results.badRequest(this.onRenderListener.onRender(contentInner, disableIndexing));
             }
-            final EntryUser u = ta.targetUser;
+            final EntryUser user = tokenAction.targetUser;
             try {
                 // Pass true for the second parameter if you want to
                 // automatically create a password and the exception never to
                 // happen
-                u.resetPassword(new ProviderUsernamePasswordAuthUser(newPassword),
-                        false);
+                user.resetPassword(new ProviderUsernamePasswordAuthUser(newPassword), false);
             } catch (final RuntimeException re) {
                 this.session.flash(Auth.FLASH_MESSAGE_KEY,
                         Messages.get("playauthenticate.reset_password.message.no_password_account"));
@@ -147,14 +168,38 @@ public class PageAuthRemindPassword {
                 this.session.flash(Auth.FLASH_MESSAGE_KEY,
                         Messages.get("playauthenticate.reset_password.message.success.auto_login"));
 
-                return PlayAuthenticate.loginAndRedirect(ctx(),
-                        new ProviderLoginUsernamePasswordAuthUser(u.email));
+                return PlayAuthenticate.loginAndRedirect(this.session.ctx(),
+                        new ProviderLoginUsernamePasswordAuthUser(user.email));
             } else {
                 // send the user to the login page
                 this.session.flash(Auth.FLASH_MESSAGE_KEY,
                         Messages.get("playauthenticate.reset_password.message.success.manual_login"));
             }
-            return Results.redirect(routes.ApplicationController.login());
+            return Results.redirect(routes.AuthController.login());
         }
+    }
+
+    private ContentInner renderResetPasswordView(Form<ModelAuth.PasswordReset> form) {
+
+        String title = Messages.get("playauthenticate.password.reset.title");
+        String description = Messages.get("playauthenticate.password.reset.description");
+        String keywords = Messages.get("playauthenticate.password.reset.keywords");
+
+        Content content = ViewPasswordReset.render(form);
+        ContentInner innerContent = new ContentInner(title, description, keywords, content);
+
+        return innerContent;
+    }
+
+    private ContentInner renderRemindPasswordView(Form<ModelAuth.Identity> form) {
+
+        String title = Messages.get("playauthenticate.password.forgot.title");
+        String description = Messages.get("playauthenticate.password.forgot.description");
+        String keywords = Messages.get("playauthenticate.password.forgot.keywords");
+
+        Content content = ViewPasswordRemind.render(form);
+        ContentInner innerContent = new ContentInner(title, description, keywords, content);
+
+        return innerContent;
     }
 }

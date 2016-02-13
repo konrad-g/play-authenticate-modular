@@ -26,7 +26,7 @@ public class BaseController extends Controller {
 
         @Override
         public Result redirectToLogin() {
-            return redirect(routes.ApplicationController.login());
+            return redirect(routes.AuthController.login());
         }
 
         @Override

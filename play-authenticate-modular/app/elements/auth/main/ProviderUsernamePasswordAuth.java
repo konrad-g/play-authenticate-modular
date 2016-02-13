@@ -68,10 +68,10 @@ public class ProviderUsernamePasswordAuth
 	}
 
 	@Override
-	protected com.feth.play.module.pa.providers.password.UsernamePasswordAuthProvider.SignupResult signupUser(final ProviderUsernamePasswordAuthUser user) {
-		final EntryUser u = EntryUser.findByUsernamePasswordIdentity(user);
-		if (u != null) {
-			if (u.emailValidated) {
+	protected com.feth.play.module.pa.providers.password.UsernamePasswordAuthProvider.SignupResult signupUser(final ProviderUsernamePasswordAuthUser userProvider) {
+		final EntryUser user = EntryUser.findByUsernamePasswordIdentity(userProvider);
+		if (user != null) {
+			if (user.emailValidated) {
 				// This user exists, has its email validated and is active
 				return SignupResult.USER_EXISTS;
 			} else {
@@ -82,7 +82,7 @@ public class ProviderUsernamePasswordAuth
 		}
 		// The user either does not exist or is inactive - create a new one
 		@SuppressWarnings("unused")
-		final EntryUser newUser = EntryUser.create(user);
+		final EntryUser newUser = EntryUser.create(userProvider);
 		// Usually the email should be verified before allowing login, however
 		// if you return
 		// return SignupResult.USER_CREATED;
@@ -93,14 +93,14 @@ public class ProviderUsernamePasswordAuth
 	@Override
 	protected com.feth.play.module.pa.providers.password.UsernamePasswordAuthProvider.LoginResult loginUser(
 			final ProviderLoginUsernamePasswordAuthUser authUser) {
-		final EntryUser u = EntryUser.findByUsernamePasswordIdentity(authUser);
-		if (u == null) {
+		final EntryUser user = EntryUser.findByUsernamePasswordIdentity(authUser);
+		if (user == null) {
 			return LoginResult.NOT_FOUND;
 		} else {
-			if (!u.emailValidated) {
+			if (!user.emailValidated) {
 				return LoginResult.USER_UNVERIFIED;
 			} else {
-				for (final EntryLinkedAccount acc : u.linkedAccounts) {
+				for (final EntryLinkedAccount acc : user.linkedAccounts) {
 					if (getKey().equals(acc.providerKey)) {
 						if (authUser.checkPassword(acc.providerUserId,
 								authUser.getPassword())) {
@@ -122,12 +122,12 @@ public class ProviderUsernamePasswordAuth
 
 	@Override
 	protected Call userExists(final UsernamePasswordAuthUser authUser) {
-		return routes.SignupController.exists();
+		return routes.AuthController.exists();
 	}
 
 	@Override
 	protected Call userUnverified(final UsernamePasswordAuthUser authUser) {
-		return routes.SignupController.unverified();
+		return routes.AuthController.unverified();
 	}
 
 	@Override
@@ -169,7 +169,7 @@ public class ProviderUsernamePasswordAuth
 
 		final boolean isSecure = getConfiguration().getBoolean(
 				SETTING_KEY_VERIFICATION_LINK_SECURE);
-		final String url = routes.SignupController.verify(token).absoluteURL(
+		final String url = routes.AuthController.verify(token).absoluteURL(
 				ctx.request(), isSecure);
 
 		final Lang lang = Lang.preferred(ctx.request().acceptLanguages());
@@ -218,7 +218,7 @@ public class ProviderUsernamePasswordAuth
 
 		final boolean isSecure = getConfiguration().getBoolean(
 				SETTING_KEY_PASSWORD_RESET_LINK_SECURE);
-		final String url = routes.SignupController.resetPassword(token).absoluteURL(
+		final String url = routes.AuthController.resetPassword(token).absoluteURL(
 				ctx.request(), isSecure);
 
 		final Lang lang = Lang.preferred(ctx.request().acceptLanguages());
@@ -299,7 +299,7 @@ public class ProviderUsernamePasswordAuth
 
 		final boolean isSecure = getConfiguration().getBoolean(
 				SETTING_KEY_VERIFICATION_LINK_SECURE);
-		final String url = routes.SignupController.verify(token).absoluteURL(
+		final String url = routes.AuthController.verify(token).absoluteURL(
 				ctx.request(), isSecure);
 
 		final Lang lang = Lang.preferred(ctx.request().acceptLanguages());

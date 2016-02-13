@@ -195,15 +195,15 @@ public class EntryUser extends Model implements Subject {
 
 	public static void addLinkedAccount(final AuthUser oldUser,
 			final AuthUser newUser) {
-		final EntryUser u = EntryUser.findByAuthUserIdentity(oldUser);
-		u.linkedAccounts.add(EntryLinkedAccount.create(newUser));
-		u.save();
+		final EntryUser user = EntryUser.findByAuthUserIdentity(oldUser);
+		user.linkedAccounts.add(EntryLinkedAccount.create(newUser));
+		user.save();
 	}
 
 	public static void setLastLoginDate(final AuthUser knownUser) {
-		final EntryUser u = EntryUser.findByAuthUserIdentity(knownUser);
-		u.lastLogin = new Date();
-		u.save();
+		final EntryUser user = EntryUser.findByAuthUserIdentity(knownUser);
+		user.lastLogin = new Date();
+		user.save();
 	}
 
 	public static EntryUser findByEmail(final String email) {

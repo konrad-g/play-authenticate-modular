@@ -203,13 +203,8 @@ public class PageAuthAccount {
         if (ta == null) {
 
             boolean disableIndexing = true;
-            String title = Messages.get("playauthenticate.token.error.title");
-            String description = Messages.get("playauthenticate.token.error.description");
-            String keywords = Messages.get("playauthenticate.token.error.keywords");
 
-            Content content = ViewNoTokenOrInvalid.render();
-            ContentInner contentInner = new ContentInner(title, description, keywords, content);
-
+            ContentInner contentInner = renderNoTokenOrInvalidView();
             return Results.badRequest(this.onRenderListener.onRender(contentInner, disableIndexing));
         }
         final String email = ta.targetUser.email;
@@ -219,8 +214,19 @@ public class PageAuthAccount {
         if (this.session.getCurrentUser().isPresent()) {
             return Results.redirect(routes.ApplicationController.index());
         } else {
-            return Results.redirect(routes.ApplicationController.login());
+            return Results.redirect(routes.AuthController.login());
         }
+    }
+
+    public ContentInner renderNoTokenOrInvalidView() {
+        String title = Messages.get("playauthenticate.token.error.title");
+        String description = Messages.get("playauthenticate.token.error.description");
+        String keywords = Messages.get("playauthenticate.token.error.keywords");
+
+        Content content = ViewNoTokenOrInvalid.render();
+        ContentInner contentInner = new ContentInner(title, description, keywords, content);
+
+        return contentInner;
     }
 
     private ContentInner renderAskLinkView(Form<ModelAuth.Accept> form, AuthUser user) {

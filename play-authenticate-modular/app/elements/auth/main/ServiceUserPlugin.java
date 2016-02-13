@@ -29,9 +29,9 @@ public class ServiceUserPlugin extends UserServicePlugin {
 	public Object getLocalIdentity(final AuthUserIdentity identity) {
 		// For production: Caching might be a good idea here...
 		// ...and dont forget to sync the cache when users get deactivated/deleted
-		final EntryUser u = EntryUser.findByAuthUserIdentity(identity);
-		if(u != null) {
-			return u.id;
+		final EntryUser user = EntryUser.findByAuthUserIdentity(identity);
+		if(user != null) {
+			return user.id;
 		} else {
 			return null;
 		}

@@ -26,7 +26,7 @@ public class Global extends GlobalSettings {
 			@Override
 			public Call login() {
 				// Your login page
-				return routes.ApplicationController.login();
+				return routes.AuthController.login();
 			}
 
 			@Override
@@ -60,15 +60,15 @@ public class Global extends GlobalSettings {
 			}
 
 			@Override
-			public Call onException(final AuthException e) {
-				if (e instanceof AccessDeniedException) {
-					return routes.SignupController
-							.oAuthDenied(((AccessDeniedException) e)
+			public Call onException(final AuthException exception) {
+				if (exception instanceof AccessDeniedException) {
+					return routes.AuthController
+							.oAuthDenied(((AccessDeniedException) exception)
 									.getProviderKey());
 				}
 
 				// more custom problem handling here...
-				return super.onException(e);
+				return super.onException(exception);
 			}
 		});
 

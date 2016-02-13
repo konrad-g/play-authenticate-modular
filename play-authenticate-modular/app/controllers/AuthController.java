@@ -92,7 +92,7 @@ public class AuthController extends BaseController {
 	public Result jsRoutes() {
 		return ok(
 				Routes.javascriptRouter("jsRoutes",
-						routes.javascript.SignupController.forgotPassword()))
+						routes.javascript.AuthController.remindPassword()))
 				.as("text/javascript");
 	}
 }

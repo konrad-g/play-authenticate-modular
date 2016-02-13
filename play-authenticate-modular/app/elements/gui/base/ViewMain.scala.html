@@ -28,7 +28,7 @@
 
         <script type="text/javascript" src="@routes.Assets.versioned("lib/jquery/jquery.js")"></script>
         <script type="text/javascript" src="@routes.Assets.versioned("lib/bootstrap/js/bootstrap.js")"></script>
-        <script type="text/javascript" src="@routes.ApplicationController.jsRoutes" defer="defer"></script>
+        <script type="text/javascript" src="@routes.AuthController.jsRoutes" defer="defer"></script>
 
         <link rel="stylesheet" href="@routes.Assets.versioned("lib/bootstrap/css/bootstrap.css")">
         <link href="@routes.Assets.versioned("css/main.css")" rel="stylesheet">
@@ -53,7 +53,7 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                     @if(!user.isPresent) {
-                        <li><a href="@routes.ApplicationController.signup()">@Messages("playauthenticate.navigation.signup")</a></li>
+                        <li><a href="@routes.AuthController.signup()">@Messages("playauthenticate.navigation.signup")</a></li>
                     } else {
                         <li><a href="@routes.ApplicationController.index()">@Messages("playauthenticate.navigation.home")</a></li>
                         <li><a href="@routes.ApplicationController.restricted()">@Messages("playauthenticate.navigation.restricted")</a></li>
@@ -73,7 +73,7 @@
                         </li>
                         </ul>
                     } {
-                        <a href="@routes.ApplicationController.login()" class=" navbar-right btn btn-default navbar-btn">@Messages("playauthenticate.navigation.login")</a>
+                        <a href="@routes.AuthController.login()" class=" navbar-right btn btn-default navbar-btn">@Messages("playauthenticate.navigation.login")</a>
                     }
 
                 </div><!-- /.navbar-collapse -->
