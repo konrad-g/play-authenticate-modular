@@ -32,8 +32,22 @@ public class AppLoader extends GuiceApplicationLoader {
     public Set<String> getI18nFiles() {
 
         Set<String> i18nLangs = new LinkedHashSet<>();
-        i18nLangs.add("login-messages");
-        i18nLangs.add("signup-messages");
+
+        // App
+        i18nLangs.add("base-messages");
+        i18nLangs.add("error-messages");
+        i18nLangs.add("index-messages");
+        i18nLangs.add("profile-messages");
+
+        // Auth
+        i18nLangs.add("auth-main-messages");
+        i18nLangs.add("auth-account-messages");
+        i18nLangs.add("auth-login-messages");
+        i18nLangs.add("auth-pass-change-messages");
+        i18nLangs.add("auth-pass-reset-messages");
+        i18nLangs.add("auth-signup-messages");
+
+
         return i18nLangs;
     }
 }

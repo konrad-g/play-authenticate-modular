@@ -1,0 +1,24 @@
+# --- Constraints
+constraint.required=Required
+constraint.min=Minimum value: {0}
+constraint.max=Maximum value: {0}
+constraint.minLength=Minimum length: {0}
+constraint.maxLength=Maximum length: {0}
+constraint.email=Email
+
+# --- Formats
+format.date=Date (''{0}'')
+format.numeric=Numeric
+format.real=Real
+
+# --- Errors
+error.invalid=Nilai tidak valid
+error.required=Field ini harus diisi
+error.number=Nilai numerik diharapkan
+error.real=Nilai riil diharapkan
+error.min=Harus lebih dari atau sama dengan {0}
+error.max=Harus kurang dari atau sama dengan {0}
+error.minLength=Panjang minimum adalah {0}
+error.maxLength=Panjang maksimum adalah {0}
+error.email=Email valid diharapkan
+error.pattern=Harus sesuai dengan {0}

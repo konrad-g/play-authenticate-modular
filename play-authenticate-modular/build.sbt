@@ -43,6 +43,16 @@ lazy val root = project.in(file("."))
   //.dependsOn(playAuthenticate)
   //.aggregate(playAuthenticate)
 
-// Modular language files
+// Modular language files - App
+unmanagedResourceDirectories in Compile += baseDirectory.value / "app/elements/gui/base/i18n"
+unmanagedResourceDirectories in Compile += baseDirectory.value / "app/elements/gui/error/i18n"
+unmanagedResourceDirectories in Compile += baseDirectory.value / "app/elements/gui/index/i18n"
+unmanagedResourceDirectories in Compile += baseDirectory.value / "app/elements/gui/profile/i18n"
+
+// Modular language files - Auth
+unmanagedResourceDirectories in Compile += baseDirectory.value / "app/elements/auth/main/i18n"
+unmanagedResourceDirectories in Compile += baseDirectory.value / "app/elements/auth/gui/account/i18n"
 unmanagedResourceDirectories in Compile += baseDirectory.value / "app/elements/auth/gui/login/i18n"
+unmanagedResourceDirectories in Compile += baseDirectory.value / "app/elements/auth/gui/password_change/i18n"
+unmanagedResourceDirectories in Compile += baseDirectory.value / "app/elements/auth/gui/password_remind/i18n"
 unmanagedResourceDirectories in Compile += baseDirectory.value / "app/elements/auth/gui/signup/i18n"

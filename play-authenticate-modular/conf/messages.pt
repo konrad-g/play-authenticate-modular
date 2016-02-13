@@ -1,29 +1,5 @@
 # Override default Play's validation messages
 
-# --- Constraints
-constraint.required=Necessário
-constraint.min=Valor mínimo: {0}
-constraint.max=Valor máximo: {0}
-constraint.minLength=Comprimento mínimo: {0}
-constraint.maxLength=Comprimento máximo: {0}
-constraint.email=Endereço de email
-
-# --- Formats
-format.date=Data (''{0}'')
-format.numeric=Numérico
-format.real=Real
-
-# --- Errors
-error.invalid=Valor inválido
-error.required=Este campo é necessário
-error.number=Valor numérico esperado
-error.real=Valor real esperado
-error.min=Tem que ser maior ou igual a {0}
-error.max=Tem que ser menor ou igual a {0}
-error.minLength=O comprimento mínimo é {0}
-error.maxLength=O comprimento máximo é {0}
-error.email=á necessário email válido
-error.pattern=Tem que satisfazer {0}
 
 ### --- play-authenticate START
 
