@@ -50,7 +50,11 @@ public class AppControllerTest extends BaseTest {
         running(this.application, new Runnable() {
             public void run() {
 
+                AppController appController = new AppController();
 
+                Result result =  appController.profile();
+                assertEquals(403, result.status());
+                assertEquals(null, result.contentType());
             }
         });
     }
