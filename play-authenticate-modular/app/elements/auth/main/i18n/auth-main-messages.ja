@@ -1,0 +1,5 @@
+playauthenticate.password.verify_signup.subject=PlayAuthenticate: サインアップ完了
+playauthenticate.password.verify_email.subject=PlayAuthenticate: 電子メールアドレス確認
+playauthenticate.password.reset_email.subject=PlayAuthenticate: パスワードリセットの方法
+
+playauthenticate.handler.loginfirst=''{0}'' を見るにはまずログインが必要です。

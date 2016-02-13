@@ -1,9 +1,9 @@
 playauthenticate.change_password.error.passwords_not_same=Passwords do not match.
 playauthenticate.change_password.success=Password has been changed successfully.
 
-playauthenticate.change.password.title=Change your password here
-playauthenticate.change.password.cta=Change my password
-
 playauthenticate.verify.account.title=E-mail verification required
 playauthenticate.verify.account.before=Before setting a password, you need to
 playauthenticate.verify.account.first=first verify your e-mail address
+
+playauthenticate.change.password.title=Change your password here
+playauthenticate.change.password.cta=Change my password

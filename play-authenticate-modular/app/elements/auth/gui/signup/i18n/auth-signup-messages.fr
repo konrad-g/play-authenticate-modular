@@ -5,3 +5,5 @@ playauthenticate.signup.oauth=ou enregistrez-vous avec un de ces fournisseurs:
 
 playauthenticate.user.exists.title=L'utilisateur existe déjà
 playauthenticate.user.exists.message=Cet utilisateur existe déjà.
+
+playauthenticate.password.signup.error.passwords_not_same=Les mots de passe ne correspondent pas.

@@ -5,3 +5,5 @@ playauthenticate.signup.oauth=または以下のプロバイダーからサイ�
 
 playauthenticate.user.exists.title=重複したユーザー
 playauthenticate.user.exists.message=このユーザーはすでに存在します。
+
+playauthenticate.password.signup.error.passwords_not_same=パスワードが一致しません。

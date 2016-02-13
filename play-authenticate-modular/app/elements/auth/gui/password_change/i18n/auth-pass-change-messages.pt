@@ -1,0 +1,9 @@
+playauthenticate.change_password.error.passwords_not_same=Palavras passe não correspondem.
+playauthenticate.change_password.success=Palavra passe alterada com sucesso.
+
+playauthenticate.verify.account.title=á necessário verificar o endereço de email
+playauthenticate.verify.account.before=Antes de criar uma nova palavra passe, precisa
+playauthenticate.verify.account.first=verificar endereço de email.
+
+playauthenticate.change.password.title=Altere palavra passe aqui
+playauthenticate.change.password.cta=Alterar minha palavra passe

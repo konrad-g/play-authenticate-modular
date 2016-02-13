@@ -1,0 +1,35 @@
+playauthenticate.accounts.link.success=Akun berhasil disambungkan
+playauthenticate.accounts.merge.success=Akun berhasil digabungkan
+
+playauthenticate.verify_email.error.already_validated=Email kamu sudah divalidasi
+playauthenticate.verify_email.error.set_email_first=Kamu harus mengatur alamat email terlebih dahulu
+playauthenticate.verify_email.message.instructions_sent=Instruksi cara verifikasi alamat email kamu sudah dikirim ke {0}.
+playauthenticate.verify_email.success=Alamat email ({0}) berhasil diverifikasi
+
+playauthenticate.merge.accounts.title=Gabungkan akun
+playauthenticate.merge.accounts.question=Do you want to merge your current account ({0}) with this account: {1}?
+playauthenticate.merge.accounts.question=Apakah kamu ingin menggabungkan akun kamu sekarang ({0}) dengan akun ini: {1}?
+playauthenticate.merge.accounts.true=Ya, gabungkan dua akun ini.
+playauthenticate.merge.accounts.false=Tidak, keluar dari sesi saya sekarang dan masuk sebagai pengguna baru
+playauthenticate.merge.accounts.ok=OK
+
+playauthenticate.link.account.title=Sambungkan akun
+playauthenticate.link.account.question=Sambungkan ({0}) dengan user kamu?
+playauthenticate.link.account.true=Ya, sambungkan dengan akun ini
+playauthenticate.link.account.false=Tidak, keluar dan buat user baru dengan akun ini
+playauthenticate.link.account.ok=OK
+
+# play-authenticate: Signup folder translations
+
+playauthenticate.verify.email.title=Verifikasi email kamu
+playauthenticate.verify.email.requirement=Sebelum kamu menggunakan PlayAuthenticate, kamu harus melakukan verifikasi alamat email kamu.
+playauthenticate.verify.email.cta=Sebuah email sudah dikirim ke alamat tersimpan. Silakan ikuti tautan tersisip untuk melakukan aktivasi akun kamu.
+
+
+playauthenticate.oauth.access.denied.title=Akses OAuth ditolak
+playauthenticate.oauth.access.denied.explanation=Jika kamu ingin menggunakan PlayAuthenticate with OAuth, kamu harus menerima sambungan.
+playauthenticate.oauth.access.denied.alternative=Jika kamu tidak menginginkannya, kamu juga bisa
+playauthenticate.oauth.access.denied.alternative.cta=mendaftar dengan nama pengguna dan password
+
+playauthenticate.token.error.title=Token error
+playauthenticate.token.error.message=Token yang diberikan kadaluarsa atau tidak ada.

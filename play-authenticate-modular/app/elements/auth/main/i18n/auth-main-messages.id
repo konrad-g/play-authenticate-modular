@@ -1,0 +1,5 @@
+playauthenticate.password.verify_signup.subject=PlayAuthenticate: Lengkapi pendaftaran
+playauthenticate.password.verify_email.subject=PlayAuthenticate: Konfirmasi alamat email kamu.
+playauthenticate.password.reset_email.subject=PlayAuthenticate: Cara pengaturan ulang password kamu.
+
+playauthenticate.handler.loginfirst=Kamu harus masuk terlebih dahulu untuk melihat ''{0}''

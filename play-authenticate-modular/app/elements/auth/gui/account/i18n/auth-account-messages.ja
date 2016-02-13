@@ -1,0 +1,34 @@
+playauthenticate.accounts.link.success=アカウントは正しく紐付けられました
+playauthenticate.accounts.merge.success=アカウントは正しくマージされました
+
+playauthenticate.verify_email.error.already_validated=電子メールアドレスはすでに確認済です。
+playauthenticate.verify_email.error.set_email_first=最初に電子メールアドレスを登録する必要があります。
+playauthenticate.verify_email.message.instructions_sent=電子メールアドレスの確認方法は {0} に送信されました。
+playauthenticate.verify_email.success=電子メールアドレス ({0}) は正しく確認されました。
+
+playauthenticate.merge.accounts.title=アカウントのマージ
+playauthenticate.merge.accounts.question=今のアカウント ({0}) をアカウント {1} とマージしますか？
+playauthenticate.merge.accounts.true=はい、二つのアカウントをマージします
+playauthenticate.merge.accounts.false=いいえ、今のセッションを抜けて新たにログインします
+playauthenticate.merge.accounts.ok=OK
+
+playauthenticate.link.account.title=アカウントの紐付け
+playauthenticate.link.account.question=({0}) を自分のアカウントと紐付けますか？
+playauthenticate.link.account.true=はい、アカウントを紐付けします
+playauthenticate.link.account.false=いいえ、ログアウトしてこのアカウントに対応する別のユーザーを作ります
+playauthenticate.link.account.ok=OK
+
+# play-authenticate: Signup folder translations
+
+playauthenticate.verify.email.title=電子メールアドレスの確認
+playauthenticate.verify.email.requirement=PlayAuthentificateを利用する前に、まずは電子メールアドレスを確認する必要があります。
+playauthenticate.verify.email.cta=登録されたアドレスにメールが送られます。アカウントを有効にするためにメール内のリンクをクリックしてください。
+
+
+playauthenticate.oauth.access.denied.title=OAuthアクセスが未許可
+playauthenticate.oauth.access.denied.explanation=PlayAuthenticateをOAuthで使いたい場合は、接続を許可する必要があります。
+playauthenticate.oauth.access.denied.alternative=そのようにしたくない場合は、代わりに
+playauthenticate.oauth.access.denied.alternative.cta=ユーザー名とパスワードで登録することもできます。
+
+playauthenticate.token.error.title=トークンエラー
+playauthenticate.token.error.message=与えられたトークンは失効しているか存在しません。

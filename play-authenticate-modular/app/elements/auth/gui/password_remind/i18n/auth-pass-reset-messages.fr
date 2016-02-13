@@ -1,0 +1,11 @@
+playauthenticate.reset_password.message.instructions_sent=Les instructions pour changer votre mot de passe ont été envoyées à l'adresse: {0}.
+playauthenticate.reset_password.message.email_not_verified=Votre email doit d'abord être vérifié, des instructions ont été envoyées. Réessayez ensuite.
+playauthenticate.reset_password.message.no_password_account=Votre utilisateur n'est pas configuré pour utiliser un mot de passe.
+playauthenticate.reset_password.message.success.auto_login=Votre mot de passe a été changé.
+playauthenticate.reset_password.message.success.manual_login=Votre mot de passe a été changé. Veillez vous connecter avec votre nouveau mot de passe.
+
+playauthenticate.password.reset.title=Changer votre mot de passe
+playauthenticate.password.reset.cta=Changer votre mot de passe
+
+playauthenticate.password.forgot.title=Mot de passe oublié
+playauthenticate.password.forgot.cta=Envoyer les instructions pour changer le mot de passe

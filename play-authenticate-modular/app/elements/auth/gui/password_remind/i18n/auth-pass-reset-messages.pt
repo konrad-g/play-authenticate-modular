@@ -1,0 +1,11 @@
+playauthenticate.reset_password.message.instructions_sent=Instruções sobre como criar uma nova palavra passe foram enviadas para {0}.
+playauthenticate.reset_password.message.email_not_verified=A sua conta não foi verificada ainda. Uma mensagem de email com instruções de verificaáão foi enviada. Actualize a palavra passe mais tarde.
+playauthenticate.reset_password.message.no_password_account=O utilizador ainda não configurou uma palavra passe.
+playauthenticate.reset_password.message.success.auto_login=A sua palavra passe foi actualizada.
+playauthenticate.reset_password.message.success.manual_login=A sua palavra passe foi actualizada. Por favor, autentique-se com a nova palavra passe.
+
+playauthenticate.password.reset.title=Actualizar palavra passe
+playauthenticate.password.reset.cta=Actualizar a minha palavra passe
+
+playauthenticate.password.forgot.title=Esqueci-me da palavra passe
+playauthenticate.password.forgot.cta=Enviar instruções para reestabelecer palavra passe

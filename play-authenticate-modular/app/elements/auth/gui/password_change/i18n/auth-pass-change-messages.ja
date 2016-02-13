@@ -1,0 +1,9 @@
+playauthenticate.change_password.error.passwords_not_same=パスワードが一致しません。
+playauthenticate.change_password.success=パスハードは正常に変更されました。
+
+playauthenticate.verify.account.title=電子メールによる確認が必要
+playauthenticate.verify.account.before=パスワードを設定する前に、
+playauthenticate.verify.account.first=電子メールアドレスの確認が必要です
+
+playauthenticate.change.password.title=ここでパスワードの変更
+playauthenticate.change.password.cta=パスワードを変更

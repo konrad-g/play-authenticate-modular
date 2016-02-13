@@ -1,0 +1,5 @@
+playauthenticate.password.verify_signup.subject=PlayAuthenticate: Complete o seu registo
+playauthenticate.password.verify_email.subject=PlayAuthenticate: Confirme o seu endereço de email
+playauthenticate.password.reset_email.subject=PlayAuthenticate: Como actualizar a palavra passe
+
+playauthenticate.handler.loginfirst=Precisa de autenticar-se para ver ''{0}''

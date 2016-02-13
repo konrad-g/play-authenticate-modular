@@ -7,4 +7,4 @@ playauthenticate.login.now=Autenticar agora
 playauthenticate.login.forgot.password=Esqueceu a palavra passe?
 playauthenticate.login.oauth=ou autentique-se utilizando um dos seguintes serviços:
 
-playauthenticate.handler.loginfirst=Precisa de autenticar-se para ver ''{0}''
+playauthenticate.password.login.unknown_user_or_pw=Utilizador ou palavra passe desconhecido/a.

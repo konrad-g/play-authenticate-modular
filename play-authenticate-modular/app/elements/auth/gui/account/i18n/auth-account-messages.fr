@@ -1,0 +1,34 @@
+playauthenticate.accounts.link.success=Comptes liés avec succès
+playauthenticate.accounts.merge.success=Comptes unifiés avec succès
+
+playauthenticate.verify_email.error.already_validated=Votre email a déjà été validé.
+playauthenticate.verify_email.error.set_email_first=Vous devez d'abord fournir un email.
+playauthenticate.verify_email.message.instructions_sent=Les instructions pour valider votre email ont été envoyé à l'adresse {0}.
+playauthenticate.verify_email.success=L'adresse E-mail  ({0}) a été validée avec succès.
+
+playauthenticate.merge.accounts.title=Unifier des comptes
+playauthenticate.merge.accounts.question=Voulez-vous unifier le compte ({0}) avec le compte: {1}?
+playauthenticate.merge.accounts.true=Oui, unifier les deux comptes
+playauthenticate.merge.accounts.false=Non, quitter la session et se connecter avec un autre compte
+playauthenticate.merge.accounts.ok=OK
+
+playauthenticate.link.account.title=Lier les comptes
+playauthenticate.link.account.question=Lier ({0}) avec votre utilisateur?
+playauthenticate.link.account.true=Oui, lier ce compte
+playauthenticate.link.account.false=Non, quitter la session et créer un nouveau compte
+playauthenticate.link.account.ok=OK
+
+# play-authenticate: Signup folder translations
+
+playauthenticate.verify.email.title=Verifier votre e-mail
+playauthenticate.verify.email.requirement=Avant d'utiliser PlayAuthenticate, vous devez d'abord vérifier votre email.
+playauthenticate.verify.email.cta=Un email a été envoyé à votre adresse avec des instructions pour vous connecter.
+
+
+playauthenticate.oauth.access.denied.title=Accès OAuth refusé
+playauthenticate.oauth.access.denied.explanation=Si vous voulez utiliser PlayAuthenticate avec OAuth, vous devez accepter la connexion.
+playauthenticate.oauth.access.denied.alternative=Si vous ne préférez pas accepter la connexion, vous pouvez toujours
+playauthenticate.oauth.access.denied.alternative.cta=vous enregistrer avec un nouveau compte.
+
+playauthenticate.token.error.title=Erreur de token
+playauthenticate.token.error.message=Le token reçu est soit trop vieux, soit il n'existe pas.

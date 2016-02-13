@@ -5,3 +5,5 @@ playauthenticate.signup.oauth=atau daftar menggunakan salah satu dari provider b
 
 playauthenticate.user.exists.title=Pengguna sudah ada
 playauthenticate.user.exists.message=Pengguna ini sudah ada sebelumnya.
+
+playauthenticate.password.signup.error.passwords_not_same=Password tidak cocok.

@@ -7,4 +7,4 @@ playauthenticate.login.now=Se connecter maintenant
 playauthenticate.login.forgot.password=Mot de passe oublié?
 playauthenticate.login.oauth=ou connectez-vous avec un de ces fournisseurs:
 
-playauthenticate.handler.loginfirst=Vous devez vous connecter pour accéder à: ''{0}''
+playauthenticate.password.login.unknown_user_or_pw=Utilisateur et mot de passe inconnus.

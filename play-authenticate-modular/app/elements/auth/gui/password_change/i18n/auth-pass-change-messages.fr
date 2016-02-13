@@ -1,0 +1,9 @@
+playauthenticate.change_password.error.passwords_not_same=Les mots de passe ne correspondent pas.
+playauthenticate.change_password.success=Mot de passe changé avec succès.
+
+playauthenticate.verify.account.title=Vérification par email obligatoire
+playauthenticate.verify.account.before=Avant de spécifier un mot de passe, vous devez
+playauthenticate.verify.account.first=d'abord vérifier votre email
+
+playauthenticate.change.password.title=Changer votre mot de passe ici
+playauthenticate.change.password.cta=Changer votre mot de passe

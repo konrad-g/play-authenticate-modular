@@ -5,3 +5,5 @@ playauthenticate.signup.oauth=ou registe-se utilizando um dos seguintes serviço
 
 playauthenticate.user.exists.title=Utilizador existente.
 playauthenticate.user.exists.message=Este utilizador já existe.
+
+playauthenticate.password.signup.error.passwords_not_same=Palavras passe não correspondem.

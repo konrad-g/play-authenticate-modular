@@ -1,0 +1,11 @@
+playauthenticate.reset_password.message.instructions_sent=Instruksi untuk mengatur ulang password kamu sudah dikirim ke {0}.
+playauthenticate.reset_password.message.email_not_verified=Akun kamu belum diverifikasi saat ini. Sebuah email yang berisi instruksi untuk memverifikasinya sudah dikirim. Coba reset ulang password kamu setelahnya.
+playauthenticate.reset_password.message.no_password_account=Pengguna belum mengatur penggunaan password.
+playauthenticate.reset_password.message.success.auto_login=Password kamu belum diatur ulang.
+playauthenticate.reset_password.message.success.manual_login=Password kamu sudah diatur ulang. Silakan masuk menggunakan password baru.
+
+playauthenticate.password.reset.title=Atur ulang password
+playauthenticate.password.reset.cta=Atur ulang password saya
+
+playauthenticate.password.forgot.title=Lupa password
+playauthenticate.password.forgot.cta=Kirim instruksi reset

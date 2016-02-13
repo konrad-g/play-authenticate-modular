@@ -1,0 +1,11 @@
+playauthenticate.reset_password.message.instructions_sent=Instruktionen zum Zurücksetzen deines Passwortes wurden an {0} versandt.
+playauthenticate.reset_password.message.email_not_verified=Deine E-Mail-Adresse wurde noch nicht verifiziert. Instruktionen um deine E-Mail-Adresse zu verifizieren wurden versendet. Versuche danach nochmals dein Passwort zurückzusetzen.
+playauthenticate.reset_password.message.no_password_account=Dein Benutzer wurde für die Verwendung eines Passwort-basierten Zugangs noch nicht aktiviert.
+playauthenticate.reset_password.message.success.auto_login=Dein Passwort wurde erfolgreich zurückgesetzt.
+playauthenticate.reset_password.message.success.manual_login=Dein Passwort wurde erfolgreich zurückgesetzt. Bitte melde dich jetzt mit deinem neuen Passwort an.
+
+playauthenticate.password.reset.title=Passwort zurücksetzen
+playauthenticate.password.reset.cta=Passwort zurücksetzen
+
+playauthenticate.password.forgot.title=Passwort vergessen
+playauthenticate.password.forgot.cta=Informationen zum Zurücksetzen versenden

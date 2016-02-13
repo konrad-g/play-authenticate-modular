@@ -8,4 +8,4 @@ playauthenticate.login.forgot.password=Passwort vergessen?
 playauthenticate.login.oauth=oder melde dich mit einem der folgenden Dienste an:
 playauthenticate.login.basic=oder versuch es  mit HTTP basic auth (als example/secret)
 
-playauthenticate.handler.loginfirst=Du musst dich zuerst anmelden um ''{0}'' anzuzeigen
+playauthenticate.password.login.unknown_user_or_pw=Der Benutzer wurde nicht gefunden oder das Passwort stimmt nicht überein.

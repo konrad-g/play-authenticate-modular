@@ -1,0 +1,9 @@
+playauthenticate.change_password.error.passwords_not_same=Password tidak cocok.
+playauthenticate.change_password.success=Password berhasil diubah.
+
+playauthenticate.verify.account.title=Verifikasi email diharapkan
+playauthenticate.verify.account.before=Sebelum mengatur password, kamu harus
+playauthenticate.verify.account.first=verifikasi alamat email kamu
+
+playauthenticate.change.password.title=Ubah password kamu disini
+playauthenticate.change.password.cta=Ubah password saya

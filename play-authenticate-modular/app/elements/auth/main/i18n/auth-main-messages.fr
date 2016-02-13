@@ -1,0 +1,5 @@
+playauthenticate.password.verify_signup.subject=PlayAuthenticate: Finaliser votre enregistrement
+playauthenticate.password.verify_email.subject=PlayAuthenticate: Confirmer votre email
+playauthenticate.password.reset_email.subject=PlayAuthenticate: Comment changer votre mot de passe.
+
+playauthenticate.handler.loginfirst=Vous devez vous connecter pour accéder à: ''{0}''

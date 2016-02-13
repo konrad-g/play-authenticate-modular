@@ -1,0 +1,9 @@
+playauthenticate.change_password.error.passwords_not_same=Die Passwörter stimmen nicht überein.
+playauthenticate.change_password.success=Das Passwort wurde erfolgreich geändert.
+
+playauthenticate.verify.account.title=Verifikation der E-Mail-Adresse erforderlich
+playauthenticate.verify.account.before=Bevor du ein Passwort vergeben kannst,
+playauthenticate.verify.account.first=musst du zuerst deine E-Mail-Adresse verifizieren
+
+playauthenticate.change.password.title=Ändere dein Passwort hier
+playauthenticate.change.password.cta=Mein Passwort ändern

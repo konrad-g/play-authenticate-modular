@@ -1,0 +1,34 @@
+playauthenticate.accounts.link.success=Das Konto wurde erfolgreich verknüpft.
+playauthenticate.accounts.merge.success=Die Konten wurden erfolgreich zusammengeführt.
+
+playauthenticate.verify_email.error.already_validated=Deine E-Mail-Adresse wurde bereits verifiziert.
+playauthenticate.verify_email.error.set_email_first=Du musst zuerst eine E-Mail-Adresse definieren.
+playauthenticate.verify_email.message.instructions_sent=Instruktionen zur Bestätigung deiner E-Mail-Adresse wurden an {0} gesendet.
+playauthenticate.verify_email.success=E-Mail-Adresse ({0}) wurde erfolgreich verifiziert.
+
+playauthenticate.merge.accounts.title=Konten zusammenführen
+playauthenticate.merge.accounts.question=Möchtest du dein aktuelles Konto ({0}) mit diesem zusammenführen: {1}?
+playauthenticate.merge.accounts.true=Ja, diese Konten zusammenführen
+playauthenticate.merge.accounts.false=Nein, meine aktuelle Sizung beenden und mit dem neuen Benutzer anmelden
+playauthenticate.merge.accounts.ok=OK
+
+playauthenticate.link.account.title=Konto verknüpfen
+playauthenticate.link.account.question=Konto ({0}) mit deinem Benutzer verknüpfen?
+playauthenticate.link.account.true=Ja, dieses Konto mit meinem Benutzer verknüpfen
+playauthenticate.link.account.false=Nein, abmelden und einen neuen Benutzer mit diesem Konto erstellen
+playauthenticate.link.account.ok=OK
+
+#  play-authenticate: Signup folder translations
+
+playauthenticate.verify.email.title=E-Mail-Adresse bestätigen
+playauthenticate.verify.email.requirement=Du musst deine E-Mail-Adresse bestätigen, bevor du PlayAuthenticate nutzen kannst.
+playauthenticate.verify.email.cta=Eine E-Mail wurde zur registrierten E-Mail-Adresse versandt. Bitte öffne sie und klicke auf den enthaltenen Link, um deinen Account zu aktivieren.
+
+
+playauthenticate.oauth.access.denied.title=OAuth-Zugriff abgelehnt
+playauthenticate.oauth.access.denied.explanation=Wenn du PlayAuthenticate mit OAuth nutzen möchtest, musst du die Verbindung akzeptieren.
+playauthenticate.oauth.access.denied.alternative=Falls du dies lieber nicht tun möchtest, kannst du dich auch
+playauthenticate.oauth.access.denied.alternative.cta=mit Benutzername und Passwort registrieren
+
+playauthenticate.token.error.title=Token-Fehler
+playauthenticate.token.error.message=Der Token ist entweder abgelaufen oder existiert nicht.

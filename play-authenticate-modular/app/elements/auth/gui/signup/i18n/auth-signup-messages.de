@@ -5,3 +5,5 @@ playauthenticate.signup.oauth=oder registriere dich mit einem der folgenden Dien
 
 playauthenticate.user.exists.title=Benutzer vorhanden
 playauthenticate.user.exists.message=Dieser Benutzer existiert bereits.
+
+playauthenticate.password.signup.error.passwords_not_same=Die Passwörter stimmen nicht überein.

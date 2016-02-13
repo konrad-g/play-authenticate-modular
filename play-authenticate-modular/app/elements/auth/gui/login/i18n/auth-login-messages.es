@@ -7,4 +7,4 @@ playauthenticate.login.now=Entrar
 playauthenticate.login.forgot.password=¿Olvidó su contraseña?
 playauthenticate.login.oauth=entre usando su cuenta con alguno de los siguientes proveedores:
 
-playauthenticate.handler.loginfirst=Para ver ''{0}'', debe darse primero de alta.
+playauthenticate.password.login.unknown_user_or_pw=Usuario o contraseña incorrectos.

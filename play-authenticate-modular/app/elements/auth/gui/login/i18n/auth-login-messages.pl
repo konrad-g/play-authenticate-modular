@@ -7,4 +7,4 @@ playauthenticate.login.now=Zaloguj się
 playauthenticate.login.forgot.password=Nie pamiętasz hasła?
 playauthenticate.login.oauth=lub zaloguj się z innym dostawcą:
 
-playauthenticate.handler.loginfirst=Musisz się zalogować, aby uzyskać dostęp do strony ''{0}''
+playauthenticate.password.login.unknown_user_or_pw=Nieznany użytkownik lub złe hasło.

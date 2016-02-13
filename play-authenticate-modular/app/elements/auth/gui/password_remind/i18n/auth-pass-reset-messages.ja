@@ -1,0 +1,11 @@
+playauthenticate.reset_password.message.instructions_sent=パスワードのリセット方法は {0} に送信されました。
+playauthenticate.reset_password.message.email_not_verified=アカウントが確認されていません。確認方法が記載されたメールは送信済です。確認後パスワードのリセットを行ってください。
+playauthenticate.reset_password.message.no_password_account=あなたのユーザーアカウントはパスワードを使用するように設定されていません。
+playauthenticate.reset_password.message.success.auto_login=パスワードはリセットされました。
+playauthenticate.reset_password.message.success.manual_login=パスハードはリセットされました。新しいパスワードでログインしてください。
+
+playauthenticate.password.reset.title=パスワードのリセット
+playauthenticate.password.reset.cta=パスワードをリセットする
+
+playauthenticate.password.forgot.title=パスワードを忘れた
+playauthenticate.password.forgot.cta=パスワードリセットの手順を送付する
