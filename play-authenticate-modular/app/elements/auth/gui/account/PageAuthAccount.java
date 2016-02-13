@@ -74,16 +74,15 @@ public class PageAuthAccount {
                         "playauthenticate.verify_email.message.instructions_sent",
                         user.get().email));
                 ProviderUsernamePasswordAuth.getProvider()
-                        .sendVerifyEmailMailingAfterSignup(user, ctx());
+                        .sendVerifyEmailMailingAfterSignup(user.get(), this.session.ctx());
             } else {
                 this.session.flash(ApplicationController.FLASH_MESSAGE_KEY, Messages.get(
                         "playauthenticate.verify_email.error.set_email_first",
                         user.get().email));
             }
+
             return this.onRenderListener.redirectToAccount();
-
         }
-
     }
 
     public Result renderAskLink() {
@@ -107,6 +106,7 @@ public class PageAuthAccount {
     }
 
     public Result doLink() {
+
         com.feth.play.module.pa.controllers.AuthenticateDI.noCache(this.session.response());
         final AuthUser u = PlayAuthenticate.getLinkUser(this.session.session());
 
@@ -116,21 +116,34 @@ public class PageAuthAccount {
         }
 
         final Form<ModelAuth.Accept> filledForm = getAcceptForm().bindFromRequest();
+
         if (filledForm.hasErrors()) {
             // User did not select whether to link or not link
-            return badRequest(ViewAskLink.render(filledForm, u));
+
+            String title = Messages.get("playauthenticate.link.account.title");
+            String description = Messages.get("playauthenticate.link.account.description");
+            String keywords = Messages.get("playauthenticate.link.account.keywords");
+
+            Content content = ViewAskLink.render(filledForm, u);
+            boolean disableIndexing = true;
+            ContentInner contentInner = new ContentInner(title, description, keywords, content);
+
+            return Results.badRequest(this.onRenderListener.onRender(contentInner, disableIndexing));
+
         } else {
+
             // User made a choice :)
             final boolean link = filledForm.get().accept;
             if (link) {
                 this.session.flash(ApplicationController.FLASH_MESSAGE_KEY,
                         Messages.get("playauthenticate.accounts.link.success"));
             }
-            return PlayAuthenticate.link(ctx(), link);
+            return PlayAuthenticate.link(this.session.ctx(), link);
         }
     }
 
     public Result renderAskMerge() {
+
         com.feth.play.module.pa.controllers.AuthenticateDI.noCache(this.session.response());
         // this is the currently logged in user
         final AuthUser aUser = PlayAuthenticate.getUser(this.session.session());
@@ -142,12 +155,21 @@ public class PageAuthAccount {
             return this.onRenderListener.redirectToMain();
         }
 
+        boolean disableIndexing = true;
+        String title = Messages.get("playauthenticate.merge.accounts.title");
+        String description = Messages.get("playauthenticate.merge.accounts.description");
+        String keywords = Messages.get("playauthenticate.merge.accounts.keywords");
+
         // You could also get the local user object here via
         // User.findByAuthUserIdentity(newUser)
-        return ok(ViewAskMerge.render(ACCEPT_FORM, aUser, bUser));
+        Content content = ViewAskMerge.render(getAcceptForm(), aUser, bUser);
+        ContentInner contentInner = new ContentInner(title, description, keywords, content);
+
+        return Results.ok(this.onRenderListener.onRender(contentInner, disableIndexing));
     }
 
     public Result doMerge() {
+
         com.feth.play.module.pa.controllers.AuthenticateDI.noCache(this.session.response());
         // this is the currently logged in user
         final AuthUser aUser = PlayAuthenticate.getUser(this.session.session());
@@ -162,7 +184,16 @@ public class PageAuthAccount {
         final Form<ModelAuth.Accept> filledForm = getAcceptForm().bindFromRequest();
         if (filledForm.hasErrors()) {
             // User did not select whether to merge or not merge
-            return badRequest(ViewAskMerge.render(filledForm, aUser, bUser));
+
+            boolean disableIndexing = true;
+            String title = Messages.get("playauthenticate.merge.accounts.title");
+            String description = Messages.get("playauthenticate.merge.accounts.description");
+            String keywords = Messages.get("playauthenticate.merge.accounts.keywords");
+
+            Content content = ViewAskMerge.render(filledForm, aUser, bUser);
+            ContentInner contentInner = new ContentInner(title, description, keywords, content);
+
+            return Results.badRequest(this.onRenderListener.onRender(contentInner, disableIndexing));
         } else {
             // User made a choice :)
             final boolean merge = filledForm.get().accept;
@@ -170,7 +201,7 @@ public class PageAuthAccount {
                 this.session.flash(ApplicationController.FLASH_MESSAGE_KEY,
                         Messages.get("playauthenticate.accounts.merge.success"));
             }
-            return PlayAuthenticate.merge(ctx(), merge);
+            return PlayAuthenticate.merge(this.session.ctx(), merge);
         }
     }
 }
