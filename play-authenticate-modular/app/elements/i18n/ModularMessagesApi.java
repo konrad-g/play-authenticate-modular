@@ -27,7 +27,7 @@ public class ModularMessagesApi extends DefaultMessagesApi {
     private static Environment environment;
 
     private final String BASE_I18N_FILENAME = "-messages";
-    private final String DEFAULT_LANG_CODE = "en";
+
     @Inject
     public ModularMessagesApi(Environment environment, Configuration configuration, Langs langs) {
         super(ModularMessagesApi.environment = environment, configuration, langs);
@@ -87,7 +87,7 @@ public class ModularMessagesApi extends DefaultMessagesApi {
         // Check for default language
         if("default".equals(lang) ||
                 "default.play".equals(lang) ||
-                DEFAULT_LANG_CODE.equals(lang)) {
+                I18NModule.getDefaultLangCode().equals(lang)) {
             return fileName;
         }
 

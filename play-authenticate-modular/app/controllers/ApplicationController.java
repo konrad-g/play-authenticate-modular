@@ -26,6 +26,9 @@ import elements.gui.error.html.*;
 import elements.auth.gui.signup.html.*;
 import elements.auth.gui.login.html.*;
 
+/**
+ * Custom app pages
+ */
 public class ApplicationController extends BaseController {
 	
 	public Result index() {
@@ -43,36 +46,5 @@ public class ApplicationController extends BaseController {
 	public Result profile() {
 		PageProfile pageProfile = new PageProfile(getSession(), this.onRenderListener);
 		return pageProfile.render();
-	}
-
-	public Result login() {
-		PageAuthLogin page = new PageAuthLogin(getSession(), this.onRenderListener);
-		Result result = page.renderLogin();
-		return result;
-	}
-
-	public Result doLogin() {
-		PageAuthLogin page = new PageAuthLogin(getSession(), this.onRenderListener);
-		Result result = page.doLogin();
-		return result;
-	}
-
-	public Result signup() {
-		PageAuthSignup page = new PageAuthSignup(getSession(), this.onRenderListener);
-		Result result = page.renderSignup();
-		return result;
-	}
-
-	public Result doSignup() {
-		PageAuthSignup page = new PageAuthSignup(getSession(), this.onRenderListener);
-		Result result = page.doSignup();
-		return result;
-	}
-
-	public Result jsRoutes() {
-		return ok(
-				Routes.javascriptRouter("jsRoutes",
-						routes.javascript.SignupController.forgotPassword()))
-				.as("text/javascript");
 	}
 }

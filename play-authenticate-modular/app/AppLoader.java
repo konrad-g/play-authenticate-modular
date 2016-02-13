@@ -23,7 +23,7 @@ public class AppLoader extends GuiceApplicationLoader {
         GuiceApplicationBuilder builder = (GuiceApplicationBuilder)((GuiceApplicationBuilder)this.initialBuilder
                 .in(context.environment()))
                 .loadConfig(context.initialConfiguration());
-        builder = I18NModule.setupI18N(builder, getI18nFiles());
+        builder = I18NModule.setupI18N(builder, Global.DEFAULT_LANG, getI18nFiles());
         builder = builder.overrides(this.overrides(context));
 
         return builder;

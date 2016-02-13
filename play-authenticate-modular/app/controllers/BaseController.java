@@ -17,8 +17,6 @@ import java.util.Optional;
  */
 public class BaseController extends Controller {
 
-    private final String DEFAULT_LANG = "en";
-
     protected OnRenderListener onRenderListener = new OnRenderListener() {
         @Override
         public Content onRender(ContentInner contentInner, boolean disableIndexing) {
@@ -61,10 +59,7 @@ public class BaseController extends Controller {
         // Check language
         String currentLang = getSession().lang().code();
 
-        if(lang == null  ) {
-            lang = DEFAULT_LANG;
-            getSession().ctx().changeLang(lang);
-        } else if(currentLang != null && currentLang.equals(lang)) {
+        if(currentLang != null && currentLang.equals(lang)) {
             // Don't do nothing. Language is already set
         } else if(!getSession().isLanguageSupported(lang) ) {
             Result result = Results.redirect(routes.ApplicationController.index());

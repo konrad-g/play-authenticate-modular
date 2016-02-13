@@ -183,6 +183,28 @@ public class PageAuthAccount {
         }
     }
 
+    public Result renderOAuthDenied(final String getProviderKey) {
+        com.feth.play.module.pa.controllers.AuthenticateDI.noCache(response());
+        return ok(ViewOAuthDenied.render(getProviderKey));
+    }
+
+    public Result renderVerify(final String token) {
+        com.feth.play.module.pa.controllers.AuthenticateDI.noCache(response());
+        final EntryTokenAction ta = Auth.isTokenValid(token, EntryTokenAction.Type.EMAIL_VERIFICATION);
+        if (ta == null) {
+            return badRequest(ViewNoTokenOrInvalid.render());
+        }
+        final String email = ta.targetUser.email;
+        EntryUser.verify(ta.targetUser);
+        flash(Auth.FLASH_MESSAGE_KEY,
+                Messages.get("playauthenticate.verify_email.success", email));
+        if (getSession().getCurrentUser().isPresent()) {
+            return redirect(routes.ApplicationController.index());
+        } else {
+            return redirect(routes.ApplicationController.login());
+        }
+    }
+
     private ContentInner renderAskLinkView(Form<ModelAuth.Accept> form, AuthUser user) {
 
         String title = Messages.get("playauthenticate.link.account.title");

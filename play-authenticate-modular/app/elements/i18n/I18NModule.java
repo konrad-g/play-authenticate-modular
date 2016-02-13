@@ -2,10 +2,7 @@ package elements.i18n;
 
 import play.api.Configuration;
 import play.api.Environment;
-import play.api.i18n.DefaultLangs;
-import play.api.i18n.DefaultMessagesApi;
-import play.api.i18n.Langs;
-import play.api.i18n.MessagesApi;
+import play.api.i18n.*;
 import play.api.inject.Binding;
 import play.api.inject.Module;
 import play.inject.guice.GuiceApplicationBuilder;
@@ -20,6 +17,7 @@ import java.util.Set;
 public class I18NModule extends Module {
 
     private static Set<String> i18nFiles;
+    private static String defaultLangCode = "en";
 
     public I18NModule(Set<String> i18nFiles) {
         I18NModule.i18nFiles = i18nFiles;
@@ -29,8 +27,12 @@ public class I18NModule extends Module {
         return I18NModule.i18nFiles;
     }
 
-    public static GuiceApplicationBuilder setupI18N(GuiceApplicationBuilder builder, Set<String> i18nFiles) {
+    public static String getDefaultLangCode() {
+        return I18NModule.defaultLangCode;
+    }
 
+    public static GuiceApplicationBuilder setupI18N(GuiceApplicationBuilder builder, String defaultLangCode, Set<String> i18nFiles) {
+        I18NModule.defaultLangCode = defaultLangCode;
         return builder
                 .disable(play.api.i18n.I18nModule.class)
                 .bindings(new elements.i18n.I18NModule(i18nFiles));

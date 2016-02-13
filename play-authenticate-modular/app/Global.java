@@ -17,6 +17,8 @@ import play.mvc.Call;
 
 public class Global extends GlobalSettings {
 
+	static final String DEFAULT_LANG = "en";
+
 	@Override
 	public void onStart(Application app) {
 		PlayAuthenticate.setResolver(new Resolver() {

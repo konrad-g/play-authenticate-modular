@@ -2,46 +2,49 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# Home page
-GET     /                           controllers.ApplicationController.index
-GET     /restricted                 controllers.ApplicationController.restricted
-GET     /assets/javascript/routes.js    controllers.ApplicationController.jsRoutes
+# App pages
+GET     /                                   controllers.ApplicationController.index
+GET     /restricted                         controllers.ApplicationController.restricted
 
-GET     /profile                    controllers.ApplicationController.profile
+GET     /profile                            controllers.ApplicationController.profile
 
-GET     /login                      controllers.ApplicationController.login
-POST    /login                      controllers.ApplicationController.doLogin
+# Public auth pages
+GET     /login                              controllers.AuthController.login
+POST    /login                              controllers.AuthController.doLogin
 
-GET     /logout                     com.feth.play.module.pa.controllers.AuthenticateDI.logout
-GET     /authenticate/:provider     com.feth.play.module.pa.controllers.AuthenticateDI.authenticate(provider: String)
+GET     /logout                             com.feth.play.module.pa.controllers.AuthenticateDI.logout
+GET     /authenticate/:provider             com.feth.play.module.pa.controllers.AuthenticateDI.authenticate(provider: String)
 
-GET     /signup                     controllers.ApplicationController.signup
-POST    /signup                     controllers.ApplicationController.doSignup
+GET     /signup                             controllers.AuthController.signup
+POST    /signup                             controllers.AuthController.doSignup
 
-GET     /accounts/unverified        controllers.SignupController.unverified
-GET     /authenticate/:provider/denied     controllers.SignupController.oAuthDenied(provider: String)
+GET     /accounts/unverified                controllers.AuthController.unverified
+GET     /authenticate/:provider/denied      controllers.AuthController.oAuthDenied(provider: String)
 
-GET     /accounts/verify/:token     controllers.SignupController.verify(token: String)
-GET     /accounts/exists            controllers.SignupController.exists
+GET     /accounts/verify/:token             controllers.AuthController.verify(token: String)
+GET     /accounts/exists                    controllers.AuthController.exists
 
-GET     /accounts/password/reset/:token     controllers.SignupController.resetPassword(token: String)
-POST    /accounts/password/reset            controllers.SignupController.doResetPassword
+GET     /accounts/password/reset/:token     controllers.AuthController.resetPassword(token: String)
+POST    /accounts/password/reset            controllers.AuthController.doResetPassword
 
-GET    /accounts/password/change    controllers.AccountController.changePassword
-POST   /accounts/password/change    controllers.AccountController.doChangePassword
+GET     /login/password/forgot              controllers.AuthController.remindPassword(email: String ?= "")
+POST    /login/password/forgot              controllers.AuthController.doRemindPassword
 
-GET     /accounts/verify            controllers.AccountController.verifyEmail
+GET     /assets/javascript/routes.js        controllers.AuthController.jsRoutes
 
-GET     /accounts/add               controllers.AccountController.link
+# User specific pages
+GET    /accounts/password/change            controllers.AccountController.changePassword
+POST   /accounts/password/change            controllers.AccountController.doChangePassword
 
-GET     /accounts/link              controllers.AccountController.askLink
-POST    /accounts/link              controllers.AccountController.doLink
+GET     /accounts/verify                    controllers.AccountController.verifyEmail
 
-GET     /accounts/merge             controllers.AccountController.askMerge
-POST    /accounts/merge             controllers.AccountController.doMerge
+GET     /accounts/add                       controllers.AccountController.link
 
-GET     /login/password/forgot     controllers.SignupController.forgotPassword(email: String ?= "")
-POST    /login/password/forgot     controllers.SignupController.doForgotPassword
+GET     /accounts/link                      controllers.AccountController.askLink
+POST    /accounts/link                      controllers.AccountController.doLink
+
+GET     /accounts/merge                     controllers.AccountController.askMerge
+POST    /accounts/merge                     controllers.AccountController.doMerge
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+GET     /assets/*file                       controllers.Assets.versioned(path="/public", file: Asset)

@@ -20,6 +20,9 @@ import play.mvc.Result;
 
 import static play.data.Form.form;
 
+/**
+ * Controller that consists user specific authentication methods
+ */
 public class AccountController extends BaseController {
 
 
