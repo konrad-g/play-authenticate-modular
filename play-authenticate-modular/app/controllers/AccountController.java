@@ -25,53 +25,52 @@ import static play.data.Form.form;
  */
 public class AccountController extends BaseController {
 
+    @SubjectPresent
+    public Result link() {
+        PageAuthAccount page = new PageAuthAccount(getSession(), this.onRenderListener);
+        return page.renderLink();
+    }
 
-	@SubjectPresent
-	public Result link() {
-		PageAuthAccount page = new PageAuthAccount(getSession(), this.onRenderListener);
-		return page.renderLink();
-	}
+    @Restrict(@Group(Auth.USER_ROLE))
+    public Result verifyEmail() {
+        PageAuthAccount page = new PageAuthAccount(getSession(), this.onRenderListener);
+        return page.renderVerifyEmail();
+    }
 
-	@Restrict(@Group(Auth.USER_ROLE))
-	public Result verifyEmail() {
-		PageAuthAccount page = new PageAuthAccount(getSession(), this.onRenderListener);
-		return page.renderVerifyEmail();
-	}
+    @Restrict(@Group(Auth.USER_ROLE))
+    public Result changePassword() {
+        PageAuthChangePassword page = new PageAuthChangePassword(getSession(), this.onRenderListener);
+        return page.renderChangePassword();
+    }
 
-	@Restrict(@Group(Auth.USER_ROLE))
-	public Result changePassword() {
-		PageAuthChangePassword page = new PageAuthChangePassword(getSession(), this.onRenderListener);
-		return page.renderChangePassword();
-	}
+    @Restrict(@Group(Auth.USER_ROLE))
+    public Result doChangePassword() {
+        PageAuthChangePassword page = new PageAuthChangePassword(getSession(), this.onRenderListener);
+        return page.doChangePassword();
+    }
 
-	@Restrict(@Group(Auth.USER_ROLE))
-	public Result doChangePassword() {
-		PageAuthChangePassword page = new PageAuthChangePassword(getSession(), this.onRenderListener);
-		return page.doChangePassword();
-	}
+    @SubjectPresent
+    public Result askLink() {
+        PageAuthAccount page = new PageAuthAccount(getSession(), this.onRenderListener);
+        return page.renderAskLink();
+    }
 
-	@SubjectPresent
-	public Result askLink() {
-		PageAuthAccount page = new PageAuthAccount(getSession(), this.onRenderListener);
-		return page.renderAskLink();
-	}
+    @SubjectPresent
+    public Result doLink() {
+        PageAuthAccount page = new PageAuthAccount(getSession(), this.onRenderListener);
+        return page.doLink();
+    }
 
-	@SubjectPresent
-	public Result doLink() {
-		PageAuthAccount page = new PageAuthAccount(getSession(), this.onRenderListener);
-		return page.doLink();
-	}
+    @SubjectPresent
+    public Result askMerge() {
+        PageAuthAccount page = new PageAuthAccount(getSession(), this.onRenderListener);
+        return page.renderAskMerge();
+    }
 
-	@SubjectPresent
-	public Result askMerge() {
-		PageAuthAccount page = new PageAuthAccount(getSession(), this.onRenderListener);
-		return page.renderAskMerge();
-	}
-
-	@SubjectPresent
-	public Result doMerge() {
-		PageAuthAccount page = new PageAuthAccount(getSession(), this.onRenderListener);
-		return page.doMerge();
-	}
+    @SubjectPresent
+    public Result doMerge() {
+        PageAuthAccount page = new PageAuthAccount(getSession(), this.onRenderListener);
+        return page.doMerge();
+    }
 
 }

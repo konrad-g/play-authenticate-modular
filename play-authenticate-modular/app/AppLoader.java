@@ -1,6 +1,7 @@
 /**
  * Created by Konrad Gadzinowski on 18/01/16.
  */
+
 import elements.i18n.I18NModule;
 import play.Application;
 import play.ApplicationLoader;
@@ -20,7 +21,7 @@ public class AppLoader extends GuiceApplicationLoader {
     @Override
     public GuiceApplicationBuilder builder(ApplicationLoader.Context context) {
 
-        GuiceApplicationBuilder builder = (GuiceApplicationBuilder)((GuiceApplicationBuilder)this.initialBuilder
+        GuiceApplicationBuilder builder = (GuiceApplicationBuilder) ((GuiceApplicationBuilder) this.initialBuilder
                 .in(context.environment()))
                 .loadConfig(context.initialConfiguration());
         builder = I18NModule.setupI18N(builder, Global.DEFAULT_LANG, getI18nFiles());

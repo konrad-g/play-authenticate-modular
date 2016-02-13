@@ -56,7 +56,7 @@ public class PageAuthRemindPassword {
 
     public Result doRemindPassword() {
         com.feth.play.module.pa.controllers.AuthenticateDI.noCache(this.session.response());
-        final Form<ModelAuth.Identity> filledForm =  getForgotPasswordForm()
+        final Form<ModelAuth.Identity> filledForm = getForgotPasswordForm()
                 .bindFromRequest();
         if (filledForm.hasErrors()) {
             // User did not fill in his/her email

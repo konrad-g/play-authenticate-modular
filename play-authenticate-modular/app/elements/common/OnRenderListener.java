@@ -9,8 +9,11 @@ import play.twirl.api.Content;
  */
 public interface OnRenderListener {
     public Content onRender(ContentInner contentInner, boolean disableIndexing);
+
     public Result redirectToLogin();
+
     public Result redirectToAccount();
+
     public Result redirectToMain();
 
 }

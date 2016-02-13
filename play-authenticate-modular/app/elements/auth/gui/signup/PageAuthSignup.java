@@ -101,7 +101,7 @@ public class PageAuthSignup {
 
         Content content;
 
-        if(form.isPresent()) {
+        if (form.isPresent()) {
             content = ViewSignup.render(form.get());
         } else {
             content = ViewSignup.render(getSignUpForm());

@@ -29,7 +29,7 @@ public class PageProfile {
 
         final Optional<EntryUser> localUser = this.session.getCurrentUser();
 
-        if(localUser.isPresent()) {
+        if (localUser.isPresent()) {
             boolean disableIndexing = false;
             String title = Messages.get("playauthenticate.profile.title");
             String description = Messages.get("playauthenticate.profile.description");

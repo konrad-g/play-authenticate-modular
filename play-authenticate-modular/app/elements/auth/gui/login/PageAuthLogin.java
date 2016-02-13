@@ -39,7 +39,7 @@ public class PageAuthLogin {
 
         Content content;
 
-        if(form.isPresent()) {
+        if (form.isPresent()) {
             content = ViewLogin.render(form.get());
         } else {
             content = ViewLogin.render(getLoginForm());

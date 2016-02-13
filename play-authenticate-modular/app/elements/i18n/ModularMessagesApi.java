@@ -47,7 +47,7 @@ public class ModularMessagesApi extends DefaultMessagesApi {
         java.util.Map<String, Map<String, String>> javaFinalMap = new LinkedHashMap<>();
 
         // Go through all languages
-        while(javaMapIterator.hasNext()) {
+        while (javaMapIterator.hasNext()) {
             java.util.Map.Entry<String, Map<String, String>> entry = javaMapIterator.next();
 
             // Get current dictionaries values for each language
@@ -59,7 +59,7 @@ public class ModularMessagesApi extends DefaultMessagesApi {
             // Add custom dictionaries from files
             Set<String> messagesFileNames = I18NModule.getI18nFiles();
             Iterator<String> messagesFileNamesIter = messagesFileNames.iterator();
-            while(messagesFileNamesIter.hasNext()) {
+            while (messagesFileNamesIter.hasNext()) {
 
                 // Get correct language gile
                 String fileName = messagesFileNamesIter.next();
@@ -85,7 +85,7 @@ public class ModularMessagesApi extends DefaultMessagesApi {
         String fileName = baseFileName;
 
         // Check for default language
-        if("default".equals(lang) ||
+        if ("default".equals(lang) ||
                 "default.play".equals(lang) ||
                 I18NModule.getDefaultLangCode().equals(lang)) {
             return fileName;

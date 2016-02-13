@@ -11,7 +11,7 @@ import java.util.Optional;
 /**
  * Created by Konrad Gadzinowski<kgadzinowski@gmail.com> on 11/12/15.
  */
-public class LayoutBase  {
+public class LayoutBase {
 
     private Session session;
 
@@ -24,7 +24,7 @@ public class LayoutBase  {
 
         boolean isAjax = isAjax();
 
-        if(!isAjax) {
+        if (!isAjax) {
             // Full content
             Optional<EntryUser> user = this.session.getCurrentUser();
             content = ViewMain.render(

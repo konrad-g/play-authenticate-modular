@@ -9,6 +9,7 @@ import play.mvc.Result;
 import play.mvc.Results;
 import play.twirl.api.Content;
 import elements.gui.restricted.html.ViewRestricted;
+
 /**
  * Created by Konrad Gadzinowski<kgadzinowski@gmail.com> on 12/02/16.
  */

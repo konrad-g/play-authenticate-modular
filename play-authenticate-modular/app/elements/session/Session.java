@@ -12,7 +12,7 @@ import java.util.Optional;
  */
 public class Session {
 
-    private final String[] languages = { "de", "en", "es", "pl", "pt" };
+    private final String[] languages = {"de", "en", "es", "pl", "pt"};
 
     private Controller controller;
 
@@ -81,19 +81,19 @@ public class Session {
         final AuthUser currentAuthUser = PlayAuthenticate.getUser(this.session());
         EntryUser currentUser = EntryUser.findByAuthUserIdentity(currentAuthUser);
 
-        Optional<EntryUser> userOptional =  Optional.ofNullable(currentUser);
+        Optional<EntryUser> userOptional = Optional.ofNullable(currentUser);
         return userOptional;
     }
 
     public boolean isLanguageSupported(String lang) {
 
-        if(lang == null) {
+        if (lang == null) {
             return false;
         }
 
         String[] languages = this.languages;
-        for(int i = 0; i < languages.length; i++) {
-            if(languages[i].equals(lang)) {
+        for (int i = 0; i < languages.length; i++) {
+            if (languages[i].equals(lang)) {
                 return true;
             }
         }

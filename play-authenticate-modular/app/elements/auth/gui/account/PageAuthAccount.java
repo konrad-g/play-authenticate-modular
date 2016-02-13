@@ -5,7 +5,9 @@ import be.objectify.deadbolt.java.actions.Restrict;
 import be.objectify.deadbolt.java.actions.SubjectPresent;
 import com.feth.play.module.pa.PlayAuthenticate;
 import com.feth.play.module.pa.user.AuthUser;
+
 import java.util.Optional;
+
 import controllers.ApplicationController;
 import controllers.routes;
 import elements.auth.main.*;
@@ -37,6 +39,7 @@ public class PageAuthAccount {
     private Form<ModelAuth.Accept> getAcceptForm() {
         return form(ModelAuth.Accept.class);
     }
+
     private Form<ModelAuth.PasswordChange> getPasswordChangeForm() {
         return form(ModelAuth.PasswordChange.class);
     }
@@ -59,7 +62,7 @@ public class PageAuthAccount {
         com.feth.play.module.pa.controllers.AuthenticateDI.noCache(this.session.response());
         Optional<EntryUser> user = this.session.getCurrentUser();
 
-        if(!user.isPresent()) {
+        if (!user.isPresent()) {
             return Results.forbidden();
         } else {
             if (user.get().emailValidated) {
