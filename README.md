@@ -15,6 +15,12 @@ I've created this project to offer an alternative to typical MVC model. I'm not 
 3. Run 'activator run'
 4. Enjoy
 
+## How to test it
+1. Open terminal
+2. Go to 'play-authenticate-modular' folder
+3. Run 'activator test'
+4. See results
+
 ---
 
 Author: Konrad Gadzinowski <kgadzinowski@gmail.com>
