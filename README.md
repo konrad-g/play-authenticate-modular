@@ -1,6 +1,6 @@
 # Modular sample app for Play Framework 2.4.x with full authentication.
 
-This is a basic web app based on Play Framework. It consist full authentication using [PlayAuthenticate](PlayAuthenticate) module.
+This is a basic web app based on Play Framework. It consist full authentication using [PlayAuthenticate](https://github.com/joscha/play-authenticate) module.
 It's based on a sample app from [PlayAuthenticate](https://github.com/joscha/play-authenticate) and presents exact same capabilities.
 
 I've created this project to offer an alternative to typical MVC model. I'm not a big fan of MVC since over time it gets really big, messy and hard to maintain. Instead of this horror I prefer to go with composition approach. The idea is simple:
