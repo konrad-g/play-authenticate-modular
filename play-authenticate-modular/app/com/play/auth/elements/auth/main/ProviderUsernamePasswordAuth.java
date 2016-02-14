@@ -175,10 +175,10 @@ public class ProviderUsernamePasswordAuth
 		final String langCode = lang.code();
 
 		final String html = getEmailTemplate(
-				"elements.auth.email.html.activate_email", langCode, url,
+				"com.play.auth.elements.auth.email.html.activate_email", langCode, url,
 				token, user.getName(), user.getEmail());
 		final String text = getEmailTemplate(
-				"elements.auth.email.txt.activate_email", langCode, url,
+				"com.play.auth.elements.auth.email.txt.activate_email", langCode, url,
 				token, user.getName(), user.getEmail());
 
 		return new Body(text, html);
@@ -224,10 +224,10 @@ public class ProviderUsernamePasswordAuth
 		final String langCode = lang.code();
 
 		final String html = getEmailTemplate(
-				"elements.auth.email.html.password_reset", langCode, url,
+				"com.play.auth.elements.auth.email.html.password_reset", langCode, url,
 				token, user.name, user.email);
 		final String text = getEmailTemplate(
-				"elements.auth.email.txt.password_reset", langCode, url, token,
+				"com.play.auth.elements.auth.email.txt.password_reset", langCode, url, token,
 				user.name, user.email);
 
 		return new Body(text, html);
@@ -305,10 +305,10 @@ public class ProviderUsernamePasswordAuth
 		final String langCode = lang.code();
 
 		final String html = getEmailTemplate(
-				"elements.auth.email.html.verify_email", langCode, url, token,
+				"com.play.auth.elements.auth.email.html.verify_email", langCode, url, token,
 				user.name, user.email);
 		final String text = getEmailTemplate(
-				"elements.auth.email.txt.verify_email", langCode, url, token,
+				"com.play.auth.elements.auth.email.txt.verify_email", langCode, url, token,
 				user.name, user.email);
 
 		return new Body(text, html);
