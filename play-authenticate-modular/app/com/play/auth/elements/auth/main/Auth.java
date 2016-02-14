@@ -1,5 +1,7 @@
 package com.play.auth.elements.auth.main;
 
+import java.util.Arrays;
+
 /**
  * Created by Konrad Gadzinowski<kgadzinowski@gmail.com> on 13/02/16.
  */
@@ -26,5 +28,16 @@ public class Auth {
         }
 
         return ret;
+    }
+
+    public static void addInitialData() {
+        if (EntrySecurityRole.find.findRowCount() == 0) {
+            for (final String roleName : Arrays
+                    .asList(Auth.USER_ROLE)) {
+                final EntrySecurityRole role = new EntrySecurityRole();
+                role.roleName = roleName;
+                role.save();
+            }
+        }
     }
 }

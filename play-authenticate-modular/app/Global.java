@@ -74,13 +74,6 @@ public class Global extends GlobalSettings {
     }
 
     private void initialData() {
-        if (EntrySecurityRole.find.findRowCount() == 0) {
-            for (final String roleName : Arrays
-                    .asList(Auth.USER_ROLE)) {
-                final EntrySecurityRole role = new EntrySecurityRole();
-                role.roleName = roleName;
-                role.save();
-            }
-        }
+        Auth.addInitialData();
     }
 }
