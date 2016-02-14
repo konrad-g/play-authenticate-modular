@@ -45,6 +45,10 @@ public class BaseController extends Controller {
 
     public BaseController() { }
 
+    public OnRenderListener getOnRenderListener() {
+        return this.onRenderListener;
+    }
+
     public Session getSession() {
 
         if(null == this.session) {

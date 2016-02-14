@@ -11,11 +11,9 @@ import static org.junit.Assert.*;
 
 
 /**
-*
-* Simple (JUnit) tests that can call all parts of a play app.
-* If you are interested in mocking a whole application, see the wiki for more details.
-*
-*/
+ * Simple (JUnit) tests that can call all parts of a play app.
+ * If you are interested in mocking a whole application, see the wiki for more details.
+ */
 public class AppControllerTest extends BaseTest {
 
     /**
@@ -31,7 +29,7 @@ public class AppControllerTest extends BaseTest {
 
                 AppController appController = new AppController();
 
-                Result result =  appController.index();
+                Result result = appController.index();
                 assertEquals(200, result.status());
                 assertEquals("text/html", result.contentType());
 
@@ -52,24 +50,9 @@ public class AppControllerTest extends BaseTest {
 
                 AppController appController = new AppController();
 
-                Result result =  appController.profile();
+                Result result = appController.profile();
                 assertEquals(403, result.status());
                 assertEquals(null, result.contentType());
-            }
-        });
-    }
-
-    /**
-     * Given I'm logged int
-     * When I call profile page
-     * Then I get it
-     */
-    @Test
-    public void profileLoggedIn() {
-        running(this.application, new Runnable() {
-            public void run() {
-
-
             }
         });
     }
